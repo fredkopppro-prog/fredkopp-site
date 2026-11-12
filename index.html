@@ -2,10 +2,12 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formsubmit.co https://www.googleapis.com; form-action 'self' https://formsubmit.co mailto:; frame-src https://calendar.app.google https://calendar.google.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Fred Kopp · Création de sites et d'applications sur mesure à Paris</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Création et refonte de sites internet sur mesure pour indépendants et entrepreneurs, et développement d'applications. Par le fondateur de Béa. Paris et à distance. Dès 2 500 €.">
+<meta name="description" content="Création et refonte de sites sur mesure pour indépendants et entrepreneurs, et applications. Par le fondateur de Béa. Paris et à distance. Dès 2 500 €.">
 <link rel="canonical" href="https://fredkopp.com/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
@@ -78,14 +80,24 @@
     <a class="link-more" href="#realisations">Voir les réalisations</a>
   </div>
 
-  <div class="stage tilt">
-    <div class="browser showcase" role="region" aria-roledescription="carrousel" aria-label="Sites réalisés">
-      <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url" id="sc-url">bea.immo</span></div>
-      <div class="sc-view">
-        <img class="sc-slide on" src="captures/hero-bea.jpg" alt="Page d'accueil de Béa, plateforme d'échange immobilier" width="1440" height="687" data-url="bea.immo" data-name="Béa" data-what="Plateforme immobilière">
-        <img class="sc-slide" src="captures/hero-marcy.jpg" alt="Page d'accueil du site de Marie-Sybille Mahaux, architecte d'intérieur" width="1440" height="687" loading="lazy" data-url="mariesybillemahaux.com" data-name="Marie-Sybille Mahaux" data-what="Architecte d'intérieur">
-        <img class="sc-slide" src="captures/hero-jen.jpg" alt="Page d'accueil du site Bracconi Coaching et Formation" width="1440" height="687" loading="lazy" data-url="bracconicoaching.fr" data-name="Bracconi Coaching" data-what="Coach et formatrice">
-        <img class="sc-slide" src="captures/hero-kylian.jpg" alt="Page d'accueil de la pétition Pardon Kylian" width="1440" height="688" loading="lazy" data-url="pardonkylian.fr" data-name="Pardon Kylian" data-what="Campagne nationale, 100 000 signatures">
+  <div class="stage">
+    <div class="devices devices--hero" role="region" aria-roledescription="carrousel" aria-label="Sites réalisés, sur ordinateur et sur téléphone">
+      <div class="browser dv-desk">
+        <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url" id="sc-url">bea.immo</span></div>
+        <div class="sc-view" id="sc-desk">
+          <img class="sc-slide on" src="captures/desk-bea.jpg" alt="Page d'accueil de Béa, plateforme d'échange immobilier, sur ordinateur" width="1400" height="875" data-url="bea.immo" data-name="Béa" data-what="Plateforme immobilière">
+          <img class="sc-slide" src="captures/desk-marcy.jpg" alt="Page d'accueil du site de Marie-Sybille Mahaux, architecte d'intérieur, sur ordinateur" width="1400" height="875" loading="lazy" data-url="mariesybillemahaux.com" data-name="Marie-Sybille Mahaux" data-what="Architecte d'intérieur">
+          <img class="sc-slide" src="captures/desk-jen.jpg" alt="Page d'accueil du site Bracconi Coaching et Formation, sur ordinateur" width="1400" height="875" loading="lazy" data-url="bracconicoaching.fr" data-name="Bracconi Coaching" data-what="Coach et formatrice">
+          <img class="sc-slide" src="captures/desk-kylian.jpg" alt="Page d'accueil de la pétition Pardon Kylian, sur ordinateur" width="1400" height="875" loading="lazy" data-url="pardonkylian.fr" data-name="Pardon Kylian" data-what="Campagne nationale, 100 597 signatures en 14 jours">
+        </div>
+      </div>
+      <div class="dv-phone" aria-hidden="true">
+        <div class="dv-screen" id="sc-mob">
+          <img class="sc-slide on" src="captures/mob-bea.jpg" alt="" width="640" height="1384">
+          <img class="sc-slide" src="captures/mob-marcy.jpg" alt="" width="640" height="1384" loading="lazy">
+          <img class="sc-slide" src="captures/mob-jen.jpg" alt="" width="640" height="1384" loading="lazy">
+          <img class="sc-slide" src="captures/mob-kylian.jpg" alt="" width="640" height="1384" loading="lazy">
+        </div>
       </div>
     </div>
     <div class="sc-caption" aria-live="polite"><b id="sc-name">Béa</b> <span id="sc-what">Plateforme immobilière</span></div>
@@ -108,109 +120,72 @@
   <div class="wrap">
     <div class="work-head reveal">
       <h2 class="h2">Réalisations.</h2>
-      <p class="lead">Une plateforme, deux sites, une campagne nationale.</p>
+      <p class="lead">Une plateforme, deux sites, une campagne nationale. Sur ordinateur comme sur téléphone.</p>
     </div>
 
-    <article class="case case--night reveal">
-      <div class="case-text">
-        <p class="eyebrow">Application · Béa</p>
-        <h3 class="h3">Une plateforme immobilière, construite de zéro.</h3>
-        <p class="body">Conçue, lancée et opérée depuis 2020 : CRM, reporting, espace propriétaires. Présentée comme « La Pépite » sur BFM Business, lauréate du Pépite Sweet Award 2024 (MySweetImmo).</p>
-          <a class="link-more" href="realisation-bea.html" style="display:inline-block; margin-top:14px; padding-left:0;">Voir le projet</a>
-        <div class="stats">
-          <div class="stat"><strong class="num" data-count="15000">15 000</strong><span>propriétaires</span></div>
-          <div class="stat"><strong class="num" data-count="88" data-suffix=" %">88 %</strong><span>confient leur bien hors marché, uniquement à Béa</span></div>
+    <div class="work-grid">
+      <article class="work-card work-card--wide work-card--night reveal">
+        <a class="wc-visual" href="realisation-bea.html" tabindex="-1" aria-hidden="true">
+        <div class="devices">
+          <div class="browser dv-desk"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">bea.immo</span></div><img class="dv-img" src="captures/desk-bea.jpg" alt="Béa, plateforme d'échange immobilier, sur ordinateur" width="1400" height="875" loading="lazy"></div>
+          <div class="dv-phone"><div class="dv-screen"><img src="captures/mob-bea.jpg" alt="Béa, plateforme d'échange immobilier, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
         </div>
-      </div>
-      <div class="case-visual">
-        <div class="browser" role="img" aria-label="Aperçu du module de reporting Béa">
-          <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">app.bea.immo/reporting</span></div>
-          <div style="padding:22px; background:#F7F8FA; display:grid; gap:12px;">
-            <div class="app-title" style="font-size:16px;">Reporting <span class="chip chip--blue">2026</span></div>
-            <div class="kpis">
-              <div class="kpi"><small>Propriétaires</small><strong class="num">15 000</strong></div>
-              <div class="kpi"><small>Hors marché</small><strong class="num">88 %</strong></div>
-            </div>
-            <div class="panel">
-              <h4>Activité par mois</h4>
-              <div class="bars" aria-hidden="true" style="height:110px;"><i style="height:30%"></i><i style="height:38%"></i><i style="height:35%"></i><i style="height:48%"></i><i style="height:55%"></i><i style="height:52%"></i><i style="height:66%"></i><i class="hi" style="height:78%"></i><i class="hi" style="height:90%"></i></div>
-            </div>
-            <div class="panel" style="display:grid; gap:10px;"><span class="skel" style="width:92%"></span><span class="skel" style="width:76%"></span><span class="skel" style="width:84%"></span></div>
-          </div>
+        </a>
+        <div class="wc-text">
+          <p class="eyebrow">Application · Béa</p>
+          <h3 class="h3">Une plateforme immobilière, construite de zéro.</h3>
+          <p class="body">Conçue, lancée et opérée depuis 2020, avec plus de 15 000 propriétaires inscrits. « La Pépite » sur BFM Business, Pépite Sweet Award 2024.</p>
+          <div class="wc-kpi"><strong class="num" data-count="88" data-suffix=" %">88 %</strong><span>des propriétaires confient leur bien hors marché, uniquement à Béa.</span></div>
+          <a class="link-more" href="realisation-bea.html">Voir le projet</a>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <article class="case reveal lift">
-      <div class="case-visual" style="background:#F6ECEA;">
-        <div class="browser" role="img" aria-label="Aperçu du site de Marie-Sybille Mahaux, architecte d'intérieur">
-          <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">mariesybillemahaux.com</span></div>
-          <div style="background:#FBF6F4; color:#3A2A2E;">
-            <div style="padding:20px 28px 0; display:flex; justify-content:space-between; align-items:center; font-size:12px;"><span style="font-family:var(--f-serif); font-size:20px;">Marie-Sybille Mahaux</span><span style="display:flex; gap:18px;"><span>Projets</span><span>Approche</span><span>Contact</span></span></div>
-            <div style="padding:28px; display:flex; gap:24px; flex-wrap:wrap;">
-              <div style="flex:1 1 200px; display:flex; flex-direction:column; justify-content:center;">
-                <p style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#8E5866;">Architecture d'intérieur</p>
-                <p style="margin-top:12px; font-family:var(--f-serif); font-size:36px; line-height:1.02;">Des intérieurs qui vous ressemblent.</p>
-                <span style="margin-top:20px; align-self:flex-start; background:#C9708A; color:#FFFFFF; font-size:12px; font-weight:600; padding:10px 16px; border-radius:999px;">Prendre rendez-vous</span>
-              </div>
-              <div style="flex:1 1 200px; height:230px; display:flex; gap:10px;"><div style="flex:1.2; background:#E9CFC9; border-radius:120px 120px 12px 12px;"></div><div style="flex:1; display:flex; flex-direction:column; gap:10px;"><div style="flex:1; background:#D7C2B4; border-radius:12px;"></div><div style="flex:1; background:#C9A9A6; border-radius:12px;"></div></div></div>
-            </div>
-          </div>
+      <article class="work-card reveal lift">
+        <a class="wc-visual" href="realisation-marie-sybille-mahaux.html" tabindex="-1" aria-hidden="true" style="background:#E9EEE6;">
+        <div class="devices">
+          <div class="browser dv-desk"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">mariesybillemahaux.com</span></div><img class="dv-img" src="captures/desk-marcy.jpg" alt="Site de Marie-Sybille Mahaux, architecte d'intérieur, sur ordinateur" width="1400" height="875" loading="lazy"></div>
+          <div class="dv-phone"><div class="dv-screen"><img src="captures/mob-marcy.jpg" alt="Site de Marie-Sybille Mahaux, architecte d'intérieur, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
         </div>
-      </div>
-      <div class="case-text">
-        <p class="eyebrow">Site · Architecte d'intérieur</p>
-        <h3 class="h3">Un site à l'image de son travail.</h3>
-        <p class="body">Refonte complète, identité préservée, pensé pour transformer les visiteurs en rendez-vous. Elle le met à jour seule.</p>
-        <a class="link-more" href="realisation-marie-sybille-mahaux.html" style="display:inline-block; margin-top:14px; padding-left:0;">Voir le projet</a>
-      </div>
-    </article>
+        </a>
+        <div class="wc-text">
+          <p class="eyebrow">Site · Architecte d'intérieur</p>
+          <h3 class="h3">Un site à l'image de son travail.</h3>
+          <p class="body">Refonte complète, identité préservée, pensée pour transformer les visiteurs en rendez-vous. Elle le met à jour seule.</p>
+          <a class="link-more" href="realisation-marie-sybille-mahaux.html">Voir le projet</a>
+        </div>
+      </article>
 
-    <div class="duo">
-      <article class="case reveal lift">
-        <div class="case-visual" style="background:#E7EDE8;">
-          <div class="browser" role="img" aria-label="Aperçu du site Bracconi Coaching">
-            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">bracconicoaching.com</span></div>
-            <div style="background:#F3F1EC; color:#2F4237; padding:16px 22px 26px;">
-              <div style="display:flex; justify-content:space-between; font-size:11px;"><b>Bracconi Coaching</b><span>Séances · À propos</span></div>
-              <div style="text-align:center; padding-top:30px;">
-                <p style="font-family:var(--f-serif); font-size:36px; line-height:1;">Retrouvez le cap.</p>
-                <p style="margin-top:10px; font-size:12px; color:#4F5E55;">Coaching de vie, à Paris et en visio.</p>
-                <span style="display:inline-block; margin-top:16px; background:#4F735D; color:#FFFFFF; font-size:11px; font-weight:600; padding:9px 16px; border-radius:999px;">Réserver un premier échange</span>
-              </div>
-            </div>
-          </div>
+      <article class="work-card reveal lift">
+        <a class="wc-visual" href="realisation-bracconi-coaching.html" tabindex="-1" aria-hidden="true" style="background:#EFE6DA;">
+        <div class="devices">
+          <div class="browser dv-desk"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">bracconicoaching.fr</span></div><img class="dv-img" src="captures/desk-jen.jpg" alt="Site Bracconi Coaching et Formation, sur ordinateur" width="1400" height="875" loading="lazy"></div>
+          <div class="dv-phone"><div class="dv-screen"><img src="captures/mob-jen.jpg" alt="Site Bracconi Coaching et Formation, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
         </div>
-        <div class="case-text">
-          <p class="eyebrow">Site · Coach de vie</p>
-          <h3 class="h3" style="font-size:28px;">Enfin trouvable en ligne.</h3>
+        </a>
+        <div class="wc-text">
+          <p class="eyebrow">Site · Coach et formatrice</p>
+          <h3 class="h3">Enfin trouvable en ligne.</h3>
           <p class="body">Une offre claire et un site pensé pour être trouvé : sa visibilité sur internet a changé du tout au tout.</p>
-          <a class="link-more" href="realisation-bracconi-coaching.html" style="display:inline-block; margin-top:14px; padding-left:0;">Voir le projet</a>
+          <a class="link-more" href="realisation-bracconi-coaching.html">Voir le projet</a>
         </div>
       </article>
 
-      <article class="case case--night reveal lift">
-        <div class="case-visual" style="background:var(--night-2);">
-          <div class="browser" role="img" aria-label="Aperçu de la pétition Pardon Kylian et de son compteur de signatures">
-            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">pardonkylian.com</span></div>
-            <div style="height:6px; display:flex;"><span style="flex:1; background:#1F3C88;"></span><span style="flex:1; background:#FFFFFF;"></span><span style="flex:1; background:#C81E2D;"></span></div>
-            <div style="padding:24px 22px 28px; text-align:center;">
-              <p style="font-size:30px; font-weight:700; letter-spacing:-.03em;">Pardon Kylian.</p>
-              <p class="num" data-count="100000" data-suffix="+" style="margin-top:12px; font-size:38px; font-weight:700; letter-spacing:-.03em; color:#C81E2D;">100 000+</p>
-              <p style="font-size:12px; color:#5F6672;">signatures</p>
-              <span class="pulse" style="display:inline-block; margin-top:16px; background:#C81E2D; color:#FFFFFF; font-size:13px; font-weight:700; padding:10px 22px; border-radius:999px;">Je signe</span>
-            </div>
-          </div>
+      <article class="work-card work-card--wide work-card--night work-card--flip reveal">
+        <a class="wc-visual" href="realisation-pardon-kylian.html" tabindex="-1" aria-hidden="true" style="background:#0E1C4F;">
+        <div class="devices">
+          <div class="browser dv-desk"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">pardonkylian.fr</span></div><img class="dv-img" src="captures/desk-kylian.jpg" alt="Pétition Pardon Kylian, sur ordinateur" width="1400" height="875" loading="lazy"></div>
+          <div class="dv-phone"><div class="dv-screen"><img src="captures/mob-kylian.jpg" alt="Pétition Pardon Kylian, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
         </div>
-        <div class="case-text">
+        </a>
+        <div class="wc-text">
           <p class="eyebrow">Campagne · Pardon Kylian</p>
-          <h3 class="h3" style="font-size:28px;">Une campagne nationale, lancée en quelques jours.</h3>
-          <p class="body">Une idée, un site, une mécanique virale. Plus de 100 000 signatures, et une couverture sur M6, France 2, franceinfo, RMC, Le Figaro et Le Parisien.</p>
-          <a class="link-more" href="realisation-pardon-kylian.html" style="display:inline-block; margin-top:14px; padding-left:0;">Voir le projet</a>
+          <h3 class="h3">Une campagne nationale, lancée en quelques jours.</h3>
+          <p class="body">Une idée, un site, une mécanique virale. Reprise par M6, France 2, franceinfo, RMC, Le Figaro et Le Parisien.</p>
+          <div class="wc-kpi"><strong class="num" data-count="100597">100 597</strong><span>signatures en 14 jours.</span></div>
+          <a class="link-more" href="realisation-pardon-kylian.html">Voir le projet</a>
         </div>
       </article>
     </div>
-    <p class="note">Aperçus redessinés. Captures réelles à venir.</p>
   </div>
 </section>
 
@@ -262,14 +237,14 @@
         <span class="name">L'audit</span>
         <span class="price num">250 €</span>
         <span class="pitch">Votre site actuel, passé au crible.</span>
-        <ul><li>Vitesse, référencement, parcours</li><li>Plan d'action priorisé</li><li>Restitution en visio</li></ul>
+        <ul><li>Vitesse, référencement, sécurité</li><li>Plan d'action priorisé</li><li>Restitution en visio</li></ul>
         <span class="foot"><span>Déduit si vous lancez la refonte.</span><b>En savoir plus</b></span>
       </a>
       <a class="offer offer--main reveal lift" href="creation-site-internet.html">
         <span class="name">Votre site</span>
         <span class="price num"><small>dès</small> 2 500 €</span>
         <span class="pitch">Création ou refonte. À votre image, pensé pour être trouvé.</span>
-        <ul><li>Design sur mesure, parfait sur mobile</li><li>Visible sur Google et dans les IA</li><li>Vous le modifiez seul</li><li>Il vous appartient, sans abonnement</li></ul>
+        <ul><li>Design sur mesure, parfait sur mobile</li><li>Visible sur Google et dans les IA</li><li>Rapide et sécurisé (HTTPS)</li><li>Vous le modifiez seul</li><li>Il vous appartient, sans abonnement</li></ul>
         <span class="foot"><span>En ligne en 5 semaines.</span><b>En savoir plus</b></span>
       </a>
       <a class="offer offer--night reveal lift" href="application-sur-mesure.html">
@@ -332,7 +307,7 @@
         <button class="btn" type="submit">Envoyer</button>
         <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
       </form>
-      <p class="alt">Ou écrivez à <strong>contact@fredkopp.com</strong> · <a href="https://calendar.app.google/M1YHv9GtAptPy2y47" target="_blank" rel="noopener">réservez un appel de 20 minutes</a></p>
+      <p class="alt">Ou écrivez à <strong>fred@fredkopp.com</strong> · <a href="https://calendar.app.google/M1YHv9GtAptPy2y47" target="_blank" rel="noopener">réservez un appel de 20 minutes</a></p>
     </div>
   </div>
 </section>

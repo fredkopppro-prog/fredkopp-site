@@ -47,7 +47,7 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
           msg.textContent = 'Merci, votre message est bien parti. Réponse sous 24 heures.';
         })
         .catch(function () {
-          msg.textContent = "L'envoi n'a pas abouti. Écrivez directement à contact@fredkopp.com.";
+          msg.textContent = "L'envoi n'a pas abouti. Écrivez directement à fred@fredkopp.com.";
         });
     });
   }
@@ -58,7 +58,7 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
 
 /* Pop-up « Démarrer un projet » : la page recule en 3D, la fenêtre arrive en pivotant. */
 (function () {
-  var EMAIL = 'contact@fredkopp.com';
+  var EMAIL = 'fred@fredkopp.com';
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var wait = function (ms) { return new Promise(function (r) { setTimeout(r, reduce ? 0 : ms); }); };
   var live = /fredkopp\.(com|fr)$|github\.io$/.test(location.hostname);
@@ -244,7 +244,8 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
 
 /* Showcase hero */
 (function () {
-  var slides = [].slice.call(document.querySelectorAll('.sc-slide')); if (slides.length < 2) { return; }
+  var slides = [].slice.call(document.querySelectorAll('#sc-desk .sc-slide')); if (slides.length < 2) { return; }
+  var mslides = [].slice.call(document.querySelectorAll('#sc-mob .sc-slide'));
   var dots = document.querySelector('.sc-dots'), url = document.getElementById('sc-url'), nm = document.getElementById('sc-name'), wh = document.getElementById('sc-what');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var i = 0, timer = null;
@@ -254,9 +255,9 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
     b.addEventListener('click', function () { go(k); restart(); }); dots.appendChild(b);
   });
   function go(k) {
-    slides[i].classList.remove('on'); dots.children[i].setAttribute('aria-selected', 'false');
+    slides[i].classList.remove('on'); if (mslides[i]) { mslides[i].classList.remove('on'); } dots.children[i].setAttribute('aria-selected', 'false');
     i = k; var s = slides[i];
-    s.classList.add('on'); dots.children[i].setAttribute('aria-selected', 'true');
+    s.classList.add('on'); if (mslides[i]) { mslides[i].classList.add('on'); } dots.children[i].setAttribute('aria-selected', 'true');
     url.textContent = s.getAttribute('data-url'); nm.textContent = s.getAttribute('data-name'); wh.textContent = s.getAttribute('data-what');
   }
   function restart() { clearInterval(timer); if (!reduce) { timer = setInterval(function () { go((i + 1) % slides.length); }, 4500); } }
