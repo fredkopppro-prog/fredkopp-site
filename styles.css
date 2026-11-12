@@ -340,3 +340,5 @@ html.portal-open, html.portal-open body { background: var(--night); }
 .psi-verdict { margin: 12px auto 0; max-width: 60ch; color: var(--on-night-muted); }
 .psi-src { margin-top: 18px; font-size: 13px; color: #8A93A5; }
 .lead.center { margin-inline: auto; }
+
+img.portrait { width: 100%; height: auto; object-fit: cover; display: block; }
