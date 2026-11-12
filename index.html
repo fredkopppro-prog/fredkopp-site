@@ -79,44 +79,17 @@
   </div>
 
   <div class="stage tilt">
-    <div class="browser" role="img" aria-label="Aperçu de l'application Béa : tableau de bord des propriétaires et des biens">
-      <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">app.bea.immo</span></div>
-      <div class="app">
-        <div class="app-side" aria-hidden="true">
-          <b>béa</b>
-          <span class="on">Tableau de bord</span><span>Propriétaires</span><span>Biens off-market</span><span>Mandats</span><span>Reporting</span>
-        </div>
-        <div class="app-main">
-          <div class="app-title">Tableau de bord <span class="chip chip--blue">Novembre</span></div>
-          <div class="kpis">
-            <div class="kpi"><small>Propriétaires</small><strong class="num">15 000</strong></div>
-            <div class="kpi"><small>Biens confiés hors marché</small><strong class="num">88 %</strong></div>
-            <div class="kpi"><small>Depuis</small><strong class="num">2020</strong></div>
-          </div>
-          <div class="panels">
-            <div class="panel">
-              <h4>Biens confiés par mois</h4>
-              <div class="bars" aria-hidden="true"><i style="height:26%"></i><i style="height:34%"></i><i style="height:31%"></i><i style="height:42%"></i><i style="height:50%"></i><i style="height:47%"></i><i style="height:60%"></i><i style="height:68%"></i><i class="hi" style="height:80%"></i><i class="hi" style="height:94%"></i></div>
-            </div>
-            <div class="panel rows">
-              <h4>Derniers biens</h4>
-              <div><span>Appartement 4 p. · Paris 16e</span><span class="chip chip--ok">Off-market</span></div>
-              <div><span>Maison 6 p. · Boulogne</span><span class="chip chip--warm">Estimation</span></div>
-              <div><span>Loft · Paris 11e</span><span class="chip chip--ok">Off-market</span></div>
-              <div><span>Studio · Paris 3e</span><span class="chip chip--blue">Visite</span></div>
-            </div>
-          </div>
-        </div>
+    <div class="browser showcase" role="region" aria-roledescription="carrousel" aria-label="Sites réalisés">
+      <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url" id="sc-url">bea.immo</span></div>
+      <div class="sc-view">
+        <img class="sc-slide on" src="captures/hero-bea.jpg" alt="Page d'accueil de Béa, plateforme d'échange immobilier" width="1440" height="687" data-url="bea.immo" data-name="Béa" data-what="Plateforme immobilière">
+        <img class="sc-slide" src="captures/hero-marcy.jpg" alt="Page d'accueil du site de Marie-Sybille Mahaux, architecte d'intérieur" width="1440" height="687" loading="lazy" data-url="mariesybillemahaux.com" data-name="Marie-Sybille Mahaux" data-what="Architecte d'intérieur">
+        <img class="sc-slide" src="captures/hero-jen.jpg" alt="Page d'accueil du site Bracconi Coaching et Formation" width="1440" height="687" loading="lazy" data-url="bracconicoaching.fr" data-name="Bracconi Coaching" data-what="Coach et formatrice">
+        <img class="sc-slide" src="captures/hero-kylian.jpg" alt="Page d'accueil de la pétition Pardon Kylian" width="1440" height="688" loading="lazy" data-url="pardonkylian.fr" data-name="Pardon Kylian" data-what="Campagne nationale, 100 000 signatures">
       </div>
     </div>
-    <div class="phone float" role="img" aria-label="Aperçu mobile du site de Marie-Sybille Mahaux">
-      <div class="phone-screen" style="background:#FBF6F4; display:flex; flex-direction:column;">
-        <div style="padding:26px 18px 10px; display:flex; justify-content:space-between; align-items:center; color:#3A2A2E;"><span style="font-family:var(--f-serif); font-size:18px;">MSM</span><span style="width:18px; height:2px; background:#3A2A2E; box-shadow:0 5px 0 #3A2A2E;"></span></div>
-        <p style="margin:10px 18px 0; font-family:var(--f-serif); font-size:27px; line-height:1.05; color:#3A2A2E;">Des intérieurs qui vous ressemblent.</p>
-        <span style="margin:16px 18px 0; align-self:flex-start; background:#C9708A; color:#FFFFFF; font-size:11px; font-weight:600; padding:8px 14px; border-radius:999px;">Prendre rendez-vous</span>
-        <div style="margin:20px 18px 18px; flex:1; display:flex; gap:8px;"><div style="flex:1; background:#E9CFC9; border-radius:80px 80px 10px 10px;"></div><div style="flex:1; display:flex; flex-direction:column; gap:8px;"><div style="flex:1; background:#D7C2B4; border-radius:10px;"></div><div style="flex:1; background:#C9A9A6; border-radius:10px;"></div></div></div>
-      </div>
-    </div>
+    <div class="sc-caption" aria-live="polite"><b id="sc-name">Béa</b> <span id="sc-what">Plateforme immobilière</span></div>
+    <div class="sc-dots" role="tablist" aria-label="Choisir un projet"></div>
   </div>
 </section>
 

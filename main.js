@@ -241,3 +241,25 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
     }).then(function () { go.disabled = false; });
   });
 })();
+
+/* Showcase hero */
+(function () {
+  var slides = [].slice.call(document.querySelectorAll('.sc-slide')); if (slides.length < 2) { return; }
+  var dots = document.querySelector('.sc-dots'), url = document.getElementById('sc-url'), nm = document.getElementById('sc-name'), wh = document.getElementById('sc-what');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var i = 0, timer = null;
+  slides.forEach(function (s, k) {
+    var b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'tab');
+    b.setAttribute('aria-label', s.getAttribute('data-name')); b.setAttribute('aria-selected', k === 0 ? 'true' : 'false');
+    b.addEventListener('click', function () { go(k); restart(); }); dots.appendChild(b);
+  });
+  function go(k) {
+    slides[i].classList.remove('on'); dots.children[i].setAttribute('aria-selected', 'false');
+    i = k; var s = slides[i];
+    s.classList.add('on'); dots.children[i].setAttribute('aria-selected', 'true');
+    url.textContent = s.getAttribute('data-url'); nm.textContent = s.getAttribute('data-name'); wh.textContent = s.getAttribute('data-what');
+  }
+  function restart() { clearInterval(timer); if (!reduce) { timer = setInterval(function () { go((i + 1) % slides.length); }, 4500); } }
+  restart();
+  document.addEventListener('visibilitychange', function () { if (document.hidden) { clearInterval(timer); } else { restart(); } });
+})();

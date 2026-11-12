@@ -342,3 +342,15 @@ html.portal-open, html.portal-open body { background: var(--night); overflow: hi
 .lead.center { margin-inline: auto; }
 
 img.portrait { width: 100%; height: auto; object-fit: cover; display: block; }
+
+/* Showcase : vraies captures qui défilent */
+.showcase .sc-view { position: relative; aspect-ratio: 1440 / 687; background: #F3F4F6; overflow: hidden; }
+.sc-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; opacity: 0; transform: scale(1.02); transition: opacity .9s var(--ease), transform 4.5s linear; }
+.sc-slide.on { opacity: 1; transform: scale(1); }
+.sc-caption { margin-top: 22px; text-align: center; font-size: 15px; color: var(--muted); min-height: 1.5em; }
+.sc-caption b { color: var(--ink); font-weight: 600; margin-right: 6px; }
+.sc-dots { display: flex; justify-content: center; gap: 4px; margin-top: 10px; }
+.sc-dots button { width: 32px; height: 32px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; }
+.sc-dots button::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #C9CED6; transition: all .3s var(--ease); }
+.sc-dots button[aria-selected="true"]::after { width: 22px; border-radius: 4px; background: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .sc-slide { transition: none; transform: none; } }
