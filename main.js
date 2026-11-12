@@ -91,7 +91,7 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
       '<label for="pop-mail">E-mail<input id="pop-mail" name="email" type="email" autocomplete="email"></label>' +
       '<label for="pop-projet">Votre projet en quelques lignes<textarea id="pop-projet" name="projet"></textarea></label>' +
       '<div class="pop-actions"><button class="btn" type="submit">Envoyer</button><button class="btn btn--ghost" type="button" id="pop-mailbtn">Ouvrir ma messagerie</button></div>' +
-      '<p class="pop-hint">Ou écrivez à <b>' + EMAIL + '</b></p>' +
+      '<p class="pop-hint">Ou écrivez à <b>' + EMAIL + '</b> · <a href="https://calendar.app.google/M1YHv9GtAptPy2y47" target="_blank" rel="noopener">réservez un appel de 20 min</a></p>' +
       '<p class="form-msg" id="pop-msg" role="status" aria-live="polite"></p>' +
     '</form>';
   document.body.appendChild(scrim);
