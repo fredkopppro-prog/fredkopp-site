@@ -284,7 +284,7 @@ p { margin: 0; }
 }
 
 /* Pop-up « Démarrer un projet » — entrée « portail » */
-html.portal-open, html.portal-open body { background: var(--night); }
+html.portal-open, html.portal-open body { background: var(--night); overflow: hidden; }
 .world { background: var(--bg); transition: transform .9s cubic-bezier(.6,0,.2,1), filter .9s var(--ease), border-radius .9s var(--ease); }
 .world.away { transform: perspective(1400px) translateZ(-260px) rotateX(9deg); filter: brightness(.55) saturate(.7); border-radius: 28px; overflow: hidden; pointer-events: none; }
 .p-scrim { position: fixed; inset: 0; z-index: 60; background: rgba(13,20,36,.35); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); opacity: 0; transition: opacity .5s var(--ease); }

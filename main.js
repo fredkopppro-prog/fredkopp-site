@@ -73,7 +73,7 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
 
   var scrim = document.createElement('div'); scrim.className = 'p-scrim'; scrim.hidden = true;
   var pop = document.createElement('div');
-  pop.className = 'pop'; pop.hidden = true;
+  pop.className = 'pop'; pop.hidden = true; pop.tabIndex = -1;
   pop.setAttribute('role', 'dialog'); pop.setAttribute('aria-modal', 'true'); pop.setAttribute('aria-labelledby', 'pop-t');
   pop.innerHTML =
     '<span class="glare" aria-hidden="true"></span>' +
@@ -150,7 +150,7 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
         ], { duration: 1200, easing: 'cubic-bezier(.2,.8,.2,1)' });
       }
       return wait(450);
-    }).then(function () { pop.querySelector('#pop-nom').focus({ preventScroll: true }); busy = false; isOpen = true; });
+    }).then(function () { if (window.matchMedia('(pointer: fine)').matches) { pop.querySelector('#pop-nom').focus({ preventScroll: true }); } else { pop.focus({ preventScroll: true }); } busy = false; isOpen = true; });
   }
   function close() {
     if (!isOpen) { return; }
