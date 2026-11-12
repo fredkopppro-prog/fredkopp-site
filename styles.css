@@ -1,3 +1,4 @@
+@media (max-width: 600px) { .case-visual .kpis { flex-wrap: nowrap; } .case-visual .kpi { flex: 1 1 0; padding: 10px 12px; } .case-visual .kpi strong { font-size: 20px; } .case-visual .bars { height: 64px !important; } .case-visual .panel:has(.skel) { display: none !important; } }
 /* Layout: une colonne de 1120px, bandes pleine largeur alternées clair / gris / nuit, grandes respirations façon Apple. */
 :root {
   --bg: #FFFFFF;
