@@ -19,7 +19,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@500&family=Fraunces:ital,opsz,wght@1,9..144,500&display=swap">
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
 {
@@ -73,7 +73,7 @@
 
 <section class="wrap hero" id="top">
   <p class="eyebrow load d1">Sites et applications sur mesure · Paris</p>
-  <h1 class="display" style="margin-top: 22px;"><span class="load d1">Pas un site.</span><span class="load d2"><em>Votre</em> site.</span></h1>
+  <h1 class="display" style="margin-top: 22px;"><span class="load d1">Pas un site.</span><span class="load d2"><em class="cercle">Votre<svg viewBox="0 0 300 130" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M226 22 C190 6 96 4 46 22 C10 36 4 74 30 98 C64 128 214 128 262 100 C298 78 290 34 240 18 C210 9 160 8 128 12"/></svg></em> site.</span></h1>
   <p class="lead load d3">Élégant, rapide, et pensé pour faire grandir votre activité. Par un fondateur qui sait ce que lancer un projet veut dire.</p>
   <div class="btns load d4">
     <a class="btn" href="#contact">Démarrer un projet</a>
@@ -81,27 +81,13 @@
   </div>
 
   <div class="stage">
-    <div class="devices devices--hero" role="region" aria-roledescription="carrousel" aria-label="Sites réalisés, sur ordinateur et sur téléphone">
+    <div class="devices devices--hero">
       <div class="browser dv-desk">
-        <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url" id="sc-url">bea.immo</span></div>
-        <div class="sc-view" id="sc-desk">
-          <img class="sc-slide on" src="captures/desk-bea.jpg" alt="Page d'accueil de Béa, plateforme d'échange immobilier, sur ordinateur" width="1400" height="875" data-url="bea.immo" data-name="Béa" data-what="Plateforme immobilière">
-          <img class="sc-slide" src="captures/desk-marcy.jpg" alt="Page d'accueil du site de Marie-Sybille Mahaux, architecte d'intérieur, sur ordinateur" width="1400" height="875" loading="lazy" data-url="mariesybillemahaux.com" data-name="Marie-Sybille Mahaux" data-what="Architecte d'intérieur">
-          <img class="sc-slide" src="captures/desk-jen.jpg" alt="Page d'accueil du site Bracconi Coaching et Formation, sur ordinateur" width="1400" height="875" loading="lazy" data-url="bracconicoaching.fr" data-name="Bracconi Coaching" data-what="Coach et formatrice">
-          <img class="sc-slide" src="captures/desk-kylian.jpg" alt="Page d'accueil de la pétition Pardon Kylian, sur ordinateur" width="1400" height="875" loading="lazy" data-url="pardonkylian.fr" data-name="Pardon Kylian" data-what="Campagne nationale, 100 597 signatures en 14 jours">
-        </div>
+        <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">mariesybillemahaux.com</span></div>
+        <img class="dv-img" src="captures/desk-marcy.jpg" alt="Site de Marie-Sybille Mahaux, architecte d'intérieur, sur ordinateur" width="1400" height="875">
       </div>
-      <div class="dv-phone" aria-hidden="true">
-        <div class="dv-screen" id="sc-mob">
-          <img class="sc-slide on" src="captures/mob-bea.jpg" alt="" width="640" height="1384">
-          <img class="sc-slide" src="captures/mob-marcy.jpg" alt="" width="640" height="1384" loading="lazy">
-          <img class="sc-slide" src="captures/mob-jen.jpg" alt="" width="640" height="1384" loading="lazy">
-          <img class="sc-slide" src="captures/mob-kylian.jpg" alt="" width="640" height="1384" loading="lazy">
-        </div>
-      </div>
+      <div class="dv-phone" aria-hidden="true"><div class="dv-screen"><img src="captures/mob-marcy.jpg" alt="" width="640" height="1384"></div></div>
     </div>
-    <div class="sc-caption" aria-live="polite"><b id="sc-name">Béa</b> <span id="sc-what">Plateforme immobilière</span></div>
-    <div class="sc-dots" role="tablist" aria-label="Choisir un projet"></div>
   </div>
 </section>
 
@@ -171,11 +157,8 @@
       </article>
 
       <article class="work-card work-card--wide work-card--night work-card--flip reveal">
-        <a class="wc-visual" href="realisation-pardon-kylian.html" tabindex="-1" aria-hidden="true" style="background:#0E1C4F;">
-        <div class="devices">
-          <div class="browser dv-desk"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">pardonkylian.fr</span></div><img class="dv-img" src="captures/desk-kylian.jpg" alt="Pétition Pardon Kylian, sur ordinateur" width="1400" height="875" loading="lazy"></div>
-          <div class="dv-phone"><div class="dv-screen"><img src="captures/mob-kylian.jpg" alt="Pétition Pardon Kylian, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
-        </div>
+        <a class="wc-visual wc-visual--solo" href="realisation-pardon-kylian.html" tabindex="-1" aria-hidden="true" style="background:#0E1C4F;">
+          <div class="dv-phone dv-phone--solo"><div class="dv-screen"><img src="captures/mob-kylian.jpg" alt="Pétition Pardon Kylian, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
         </a>
         <div class="wc-text">
           <p class="eyebrow">Campagne · Pardon Kylian</p>
