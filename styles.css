@@ -428,3 +428,36 @@ img.portrait { width: 100%; height: auto; object-fit: cover; display: block; }
 /* Bleu électrique et noir inversés (13 nov.) : titres en bleu, mots mis en avant en noir */
 .display, .h2, .h3, h1, h2, h3, .wc-kpi strong, .num { color: #2350FF; }
 .band--night .display, .band--night .h2, .band--night .h3, .band--night h2, .band--night h3, .work-card--night .h3, .work-card--night .num, .offer--night .h3, .case--night .h2 { color: #FFFFFF; }
+
+/* Bandeau presse bleu en fondu (13 nov.) */
+.press--bleu { background: linear-gradient(180deg, var(--bg) 0%, #2350FF 24%, #2350FF 76%, var(--bg) 100%); padding-block: 120px; }
+.press--bleu .eyebrow { color: #DCE4FF; }
+.press--bleu .marquee { color: #FFFFFF; }
+.press--bleu .marquee span:nth-child(odd) { color: #FFFFFF; }
+.press--bleu .marquee span { opacity: .96; }
+.press-all { display: inline-block; margin-top: 28px; color: #FFFFFF; font-weight: 600; text-decoration: none; border-bottom: 1.5px solid rgba(255,255,255,.55); padding-bottom: 2px; }
+.wc-media { margin: 14px 0 0; font: 500 11px/1.6 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+/* Béa : version longue */
+.bea-long { max-width: 860px; display: grid; gap: 22px; }
+.args { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 32px; }
+.args li { position: relative; padding-left: 24px; color: var(--ink-2); line-height: 1.55; }
+.args li::before { content: ""; position: absolute; left: 0; top: .5em; width: 10px; height: 10px; border-radius: 50%; background: #2350FF; }
+.args b { color: var(--ink); }
+@media (max-width: 760px) { .args { grid-template-columns: minmax(0, 1fr); } }
+/* Page Presse */
+.presse-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.presse-card { background: var(--bg); border-radius: var(--r-l); padding: clamp(24px, 3vw, 40px); display: grid; gap: 18px; }
+.presse-card h2 { margin: 0; font-size: clamp(28px, 3vw, 36px); letter-spacing: -.03em; color: #2350FF; }
+.qvema { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center; background: #2350FF; color: #fff; border-radius: 18px; padding: 16px 18px; }
+.qvema i { font-style: normal; font-weight: 800; font-size: 20px; line-height: 1; background: #fff; color: #2350FF; border-radius: 8px; padding: 8px 10px; }
+.qvema b { display: block; font-size: 18px; letter-spacing: -.02em; }
+.qvema span { font-size: 14px; color: #DCE4FF; }
+.presse-groupe { margin: 6px 0 0; font: 500 11px var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.presse-list { list-style: none; margin: 0; padding: 0; }
+.presse-list li { border-top: 1px solid var(--line); }
+.presse-list a, .presse-list span.row { display: grid; grid-template-columns: 10rem minmax(0, 1fr) auto; gap: 12px; align-items: baseline; padding: 13px 0; text-decoration: none; color: inherit; }
+.presse-list a:hover .t { color: #2350FF; }
+.presse-list .m { font-weight: 700; color: var(--ink); }
+.presse-list .t { color: var(--ink-2); font-size: 15px; }
+.presse-list .k { font: 500 11px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 860px) { .presse-grid { grid-template-columns: minmax(0, 1fr); } .presse-list a, .presse-list span.row { grid-template-columns: minmax(0, 1fr) auto; } .presse-list .t { grid-column: 1 / -1; } }
