@@ -8,6 +8,7 @@
 <title>Fred Kopp · Création de sites et d'applications sur mesure à Paris</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Création et refonte de sites sur mesure pour indépendants et entrepreneurs, et applications. Par le fondateur de Béa. Paris et à distance. Dès 2 500 €.">
+<link rel="preload" as="image" href="captures/desk-bea.webp" fetchpriority="high">
 <link rel="canonical" href="https://fredkopp.com/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
@@ -16,6 +17,9 @@
 <meta property="og:url" content="https://fredkopp.com/">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:image" content="https://fredkopp.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fred Kopp · Pas un site. Votre site.">
 <link rel="icon" href="favicon-fk.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -25,33 +29,95 @@
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "ProfessionalService",
+   "@id": "https://fredkopp.com/#service",
+   "name": "Fred Kopp — Sites et applications sur mesure",
+   "url": "https://fredkopp.com/",
+   "description": "Création et refonte de sites internet, développement d'applications sur mesure pour indépendants et entrepreneurs.",
+   "areaServed": [
+    "Paris",
+    "Île-de-France",
+    "France"
+   ],
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Paris",
+    "addressCountry": "FR"
+   },
+   "founder": {
+    "@id": "https://fredkopp.com/#fred"
+   },
+   "makesOffer": [
     {
-      "@type": "ProfessionalService",
-      "@id": "https://fredkopp.com/#service",
-      "name": "Fred Kopp — Sites et applications sur mesure",
-      "url": "https://fredkopp.com/",
-      "description": "Création et refonte de sites internet, développement d'applications sur mesure pour indépendants et entrepreneurs.",
-      "areaServed": ["Paris", "Île-de-France", "France"],
-      "address": { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" },
-      "founder": { "@id": "https://fredkopp.com/#fred" },
-      "makesOffer": [
-        { "@type": "Offer", "name": "Audit de site internet", "price": "250", "priceCurrency": "EUR", "url": "https://fredkopp.com/audit" },
-        { "@type": "Offer", "name": "Création ou refonte de site internet", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "2500", "priceCurrency": "EUR" }, "url": "https://fredkopp.com/creation-site-internet" },
-        { "@type": "Offer", "name": "Application sur mesure", "url": "https://fredkopp.com/application-sur-mesure" }
-      ]
+     "@type": "Offer",
+     "name": "Audit de site internet",
+     "price": "250",
+     "priceCurrency": "EUR",
+     "url": "https://fredkopp.com/audit"
     },
     {
-      "@type": "Person",
-      "@id": "https://fredkopp.com/#fred",
-      "name": "Frédéric Kopp",
-      "alternateName": "Fred Kopp",
-      "jobTitle": "Créateur de sites et d'applications",
-      "worksFor": { "@id": "https://fredkopp.com/#service" },
-      "sameAs": ["https://bea.immo"]
+     "@type": "Offer",
+     "name": "Création ou refonte de site internet",
+     "priceSpecification": {
+      "@type": "PriceSpecification",
+      "minPrice": "2500",
+      "priceCurrency": "EUR"
+     },
+     "url": "https://fredkopp.com/creation-site-internet"
+    },
+    {
+     "@type": "Offer",
+     "name": "Application sur mesure",
+     "url": "https://fredkopp.com/application-sur-mesure"
     }
-  ]
+   ],
+   "logo": "https://fredkopp.com/logo-empile.svg",
+   "image": "https://fredkopp.com/og-image.png",
+   "priceRange": "250 € – sur devis",
+   "email": "fred@fredkopp.com",
+   "slogan": "Pas un site. Votre site.",
+   "knowsAbout": [
+    "Création de site internet",
+    "Refonte de site",
+    "Référencement naturel",
+    "Application sur mesure",
+    "CRM"
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://fredkopp.com/#fred",
+   "name": "Frédéric Kopp",
+   "alternateName": "Fred Kopp",
+   "jobTitle": "Créateur de sites et d'applications",
+   "worksFor": {
+    "@id": "https://fredkopp.com/#service"
+   },
+   "sameAs": [
+    "https://bea.immo",
+    "https://pardonkylian.fr"
+   ],
+   "knowsAbout": [
+    "Création de site internet",
+    "Développement d'applications",
+    "Entrepreneuriat",
+    "Immobilier"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://fredkopp.com/#website",
+   "url": "https://fredkopp.com/",
+   "name": "Fred Kopp",
+   "inLanguage": "fr-FR",
+   "publisher": {
+    "@id": "https://fredkopp.com/#service"
+   }
+  }
+ ]
 }
 </script>
 </head>
@@ -86,9 +152,9 @@
     <div class="devices devices--hero">
       <div class="browser dv-desk">
         <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">bea.immo</span></div>
-        <img class="dv-img" src="captures/desk-bea.jpg" alt="Plateforme Béa sur ordinateur" width="1400" height="875">
+        <img class="dv-img" src="captures/desk-bea.webp" alt="Plateforme Béa sur ordinateur" width="1400" height="875" fetchpriority="high">
       </div>
-      <div class="dv-phone" aria-hidden="true"><div class="dv-screen"><img src="captures/mob-bea.jpg" alt="" width="640" height="1384"></div></div>
+      <div class="dv-phone" aria-hidden="true"><div class="dv-screen"><img src="captures/mob-bea.webp" alt="" width="640" height="1384"></div></div>
     </div>
   </div>
 </section>
@@ -116,8 +182,8 @@
       <article class="work-card work-card--wide reveal">
         <a class="wc-visual" href="realisation-bea.html" tabindex="-1" aria-hidden="true">
         <div class="devices">
-          <div class="browser dv-desk"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">bea.immo</span></div><img class="dv-img" src="captures/desk-bea.jpg" alt="Béa, plateforme d'échange immobilier, sur ordinateur" width="1400" height="875" loading="lazy"></div>
-          <div class="dv-phone"><div class="dv-screen"><img src="captures/mob-bea.jpg" alt="Béa, plateforme d'échange immobilier, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
+          <div class="browser dv-desk"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">bea.immo</span></div><img class="dv-img" src="captures/desk-bea.webp" alt="Béa, plateforme d'échange immobilier, sur ordinateur" width="1400" height="875" loading="lazy"></div>
+          <div class="dv-phone"><div class="dv-screen"><img src="captures/mob-bea.webp" alt="Béa, plateforme d'échange immobilier, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
         </div>
         </a>
         <div class="wc-text">
@@ -133,8 +199,8 @@
       <article class="work-card reveal lift">
         <a class="wc-visual" href="realisation-marie-sybille-mahaux.html" tabindex="-1" aria-hidden="true" style="background:#E9EEE6;">
         <div class="devices">
-          <div class="browser dv-desk"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">mariesybillemahaux.com</span></div><img class="dv-img" src="captures/desk-marcy.jpg" alt="Site de Marie-Sybille Mahaux, architecte d'intérieur, sur ordinateur" width="1400" height="875" loading="lazy"></div>
-          <div class="dv-phone"><div class="dv-screen"><img src="captures/mob-marcy.jpg" alt="Site de Marie-Sybille Mahaux, architecte d'intérieur, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
+          <div class="browser dv-desk"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">mariesybillemahaux.com</span></div><img class="dv-img" src="captures/desk-marcy.webp" alt="Site de Marie-Sybille Mahaux, architecte d'intérieur, sur ordinateur" width="1400" height="875" loading="lazy"></div>
+          <div class="dv-phone"><div class="dv-screen"><img src="captures/mob-marcy.webp" alt="Site de Marie-Sybille Mahaux, architecte d'intérieur, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
         </div>
         </a>
         <div class="wc-text">
@@ -148,8 +214,8 @@
       <article class="work-card reveal lift">
         <a class="wc-visual" href="realisation-bracconi-coaching.html" tabindex="-1" aria-hidden="true" style="background:#EFE6DA;">
         <div class="devices">
-          <div class="browser dv-desk"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">bracconicoaching.fr</span></div><img class="dv-img" src="captures/desk-jen.jpg" alt="Site Bracconi Coaching et Formation, sur ordinateur" width="1400" height="875" loading="lazy"></div>
-          <div class="dv-phone"><div class="dv-screen"><img src="captures/mob-jen.jpg" alt="Site Bracconi Coaching et Formation, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
+          <div class="browser dv-desk"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">bracconicoaching.fr</span></div><img class="dv-img" src="captures/desk-jen.webp" alt="Site Bracconi Coaching et Formation, sur ordinateur" width="1400" height="875" loading="lazy"></div>
+          <div class="dv-phone"><div class="dv-screen"><img src="captures/mob-jen.webp" alt="Site Bracconi Coaching et Formation, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
         </div>
         </a>
         <div class="wc-text">
@@ -162,7 +228,7 @@
 
       <article class="work-card work-card--wide work-card--night work-card--flip reveal">
         <a class="wc-visual wc-visual--solo" href="realisation-pardon-kylian.html" tabindex="-1" aria-hidden="true" style="background:#0E1C4F;">
-          <div class="dv-phone dv-phone--solo"><div class="dv-screen"><img src="captures/mob-kylian.jpg" alt="Pétition Pardon Kylian, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
+          <div class="dv-phone dv-phone--solo"><div class="dv-screen"><img src="captures/mob-kylian.webp" alt="Pétition Pardon Kylian, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
         </a>
         <div class="wc-text">
           <p class="eyebrow">Campagne · Pardon Kylian</p>
@@ -262,7 +328,7 @@
 
 <section class="band band--night" id="apropos">
   <div class="wrap about">
-    <img class="portrait reveal" src="portrait.jpg" alt="Fred Kopp" width="840" height="1050" loading="lazy">
+    <img class="portrait reveal" src="portrait.webp" alt="Fred Kopp" width="840" height="1050" loading="lazy">
     <div class="about-text reveal">
       <h2 class="h2">J'ai lancé ma startup.<br><em>Je lance la vôtre.</em></h2>
       <p class="body">Fondateur de Béa depuis 2020, passé par Qui Veut Être Mon Associé sur M6. Avant ça, huit ans à diriger une PME et des années en vente grands comptes.</p>

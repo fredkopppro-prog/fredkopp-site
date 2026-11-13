@@ -13,6 +13,9 @@
 <meta property="og:url" content="https://fredkopp.com/application-sur-mesure">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:image" content="https://fredkopp.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fred Kopp · Pas un site. Votre site.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@500&family=Fraunces:ital,opsz,wght@1,9..144,500&display=swap">
@@ -26,8 +29,28 @@
   "@type": "Service",
   "name": "Développement d'application web sur mesure",
   "serviceType": "Développement d'application",
-  "provider": { "@type": "ProfessionalService", "name": "Fred Kopp", "url": "https://fredkopp.com/" },
+  "provider": { "@type": "ProfessionalService", "@id": "https://fredkopp.com/#service", "name": "Fred Kopp", "url": "https://fredkopp.com/" },
   "areaServed": ["Paris", "Île-de-France", "France"]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Accueil",
+   "item": "https://fredkopp.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Application sur mesure",
+   "item": "https://fredkopp.com/application-sur-mesure"
+  }
+ ]
 }
 </script>
 </head>
