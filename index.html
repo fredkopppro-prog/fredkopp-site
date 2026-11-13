@@ -19,7 +19,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@500&family=Caveat:wght@600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
 {
@@ -71,29 +71,38 @@
 
 <main>
 
-<section class="hero2" id="top">
-  <div class="wrap hero2-grid">
-    <div class="hero2-text">
-      <p class="eyebrow load d1">Sites et applications sur mesure · Paris</p>
-      <h1 class="display load d1">Pas un site.<br><span class="cercle"><em>Votre</em><svg viewBox="0 0 330 150" aria-hidden="true"><path d="M40 120 C 0 90, 10 20, 120 14 C 230 8, 320 30, 310 80 C 300 128, 170 140, 80 128 C 50 124, 30 112, 36 100"/></svg></span> site.</h1>
-      <p class="lead load d2">Je conçois des sites et des applications qui vous ressemblent, avec le regard d'un entrepreneur qui a lancé sa propre startup.</p>
-      <div class="btns load d3">
-        <a class="btn" href="#contact">Démarrer un projet</a>
-        <a class="lien-main" href="#realisations">voir ce que j'ai fait ↓</a>
+<section class="wrap hero" id="top">
+  <p class="eyebrow load d1">Sites et applications sur mesure · Paris</p>
+  <h1 class="display" style="margin-top: 22px;"><span class="load d1">Pas un site.</span><span class="load d2"><em>Votre</em> site.</span></h1>
+  <p class="lead load d3">Élégant, rapide, et pensé pour faire grandir votre activité. Par un fondateur qui sait ce que lancer un projet veut dire.</p>
+  <div class="btns load d4">
+    <a class="btn" href="#contact">Démarrer un projet</a>
+    <a class="link-more" href="#realisations">Voir les réalisations</a>
+  </div>
+
+  <div class="stage">
+    <div class="devices devices--hero" role="region" aria-roledescription="carrousel" aria-label="Sites réalisés, sur ordinateur et sur téléphone">
+      <div class="browser dv-desk">
+        <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url" id="sc-url">bea.immo</span></div>
+        <div class="sc-view" id="sc-desk">
+          <img class="sc-slide on" src="captures/desk-bea.jpg" alt="Page d'accueil de Béa, plateforme d'échange immobilier, sur ordinateur" width="1400" height="875" data-url="bea.immo" data-name="Béa" data-what="Plateforme immobilière">
+          <img class="sc-slide" src="captures/desk-marcy.jpg" alt="Page d'accueil du site de Marie-Sybille Mahaux, architecte d'intérieur, sur ordinateur" width="1400" height="875" loading="lazy" data-url="mariesybillemahaux.com" data-name="Marie-Sybille Mahaux" data-what="Architecte d'intérieur">
+          <img class="sc-slide" src="captures/desk-jen.jpg" alt="Page d'accueil du site Bracconi Coaching et Formation, sur ordinateur" width="1400" height="875" loading="lazy" data-url="bracconicoaching.fr" data-name="Bracconi Coaching" data-what="Coach et formatrice">
+          <img class="sc-slide" src="captures/desk-kylian.jpg" alt="Page d'accueil de la pétition Pardon Kylian, sur ordinateur" width="1400" height="875" loading="lazy" data-url="pardonkylian.fr" data-name="Pardon Kylian" data-what="Campagne nationale, 100 597 signatures en 14 jours">
+        </div>
+      </div>
+      <div class="dv-phone" aria-hidden="true">
+        <div class="dv-screen" id="sc-mob">
+          <img class="sc-slide on" src="captures/mob-bea.jpg" alt="" width="640" height="1384">
+          <img class="sc-slide" src="captures/mob-marcy.jpg" alt="" width="640" height="1384" loading="lazy">
+          <img class="sc-slide" src="captures/mob-jen.jpg" alt="" width="640" height="1384" loading="lazy">
+          <img class="sc-slide" src="captures/mob-kylian.jpg" alt="" width="640" height="1384" loading="lazy">
+        </div>
       </div>
     </div>
-    <div class="collage load d2" aria-label="Quelques réalisations">
-      <a class="tirage t1" href="realisation-bea.html"><img src="captures/desk-bea.jpg" alt="Béa sur ordinateur" width="1400" height="875"><span class="note">Béa · 15 000 propriétaires</span></a>
-      <a class="tirage t2" href="realisation-marie-sybille-mahaux.html"><img src="captures/desk-marcy.jpg" alt="Site de Marie-Sybille Mahaux, architecte d'intérieur" width="1400" height="875" loading="lazy"><span class="note">archi d'intérieur</span></a>
-      <a class="tel t3" href="realisation-pardon-kylian.html"><img src="captures/mob-kylian.jpg" alt="Pardon Kylian sur téléphone" width="640" height="1384" loading="lazy"></a>
-      <span class="pastille">Vu sur<br>M6</span>
-      <span class="note libre">100 597 signatures en 14 jours ↗</span>
-    </div>
+    <div class="sc-caption" aria-live="polite"><b id="sc-name">Béa</b> <span id="sc-what">Plateforme immobilière</span></div>
+    <div class="sc-dots" role="tablist" aria-label="Choisir un projet"></div>
   </div>
-</section>
-
-<section class="wrap jecree">
-  <p class="reveal">Je crée des <em>sites vitrines</em> <img src="captures/desk-marcy.jpg" alt="" width="92" height="50" loading="lazy">, des <em>applications</em> <img src="captures/mob-bea.jpg" alt="" width="92" height="50" loading="lazy" style="object-position:center 55%">, des <em>outils sur mesure</em> pour piloter votre activité, et des <em>campagnes</em> <img src="captures/mob-kylian.jpg" alt="" width="92" height="50" loading="lazy"> qui font parler.</p>
 </section>
 
 <section class="press" aria-label="Vu à la télévision et dans la presse">
@@ -107,15 +116,76 @@
   <p class="hp">M6, France 2, franceinfo, BFM Business, RMC, Le Figaro, Le Parisien, Qui Veut Être Mon Associé, MySweetImmo.</p>
 </section>
 
-<section class="band" id="realisations">
+<section class="band band--soft" id="realisations">
   <div class="wrap">
-    <div class="liste-tete reveal"><h2 class="h2">Réalisations<em>.</em></h2><span class="note">survolez pour voir ↓</span></div>
-    <ol class="liste">
-      <li class="reveal"><a href="realisation-bea.html"><span class="n">01</span><span class="nom">Béa</span><span class="dit">Plateforme immobilière. <b>88 %</b> des propriétaires confient leur bien hors marché, uniquement à Béa.</span><span class="fl">→</span><img src="captures/desk-bea.jpg" alt="" width="1400" height="875" loading="lazy"></a></li>
-      <li class="reveal"><a href="realisation-marie-sybille-mahaux.html"><span class="n">02</span><span class="nom">Marie-Sybille Mahaux</span><span class="dit">Architecte d'intérieur. Un site à l'image de son travail, qu'elle met à jour seule.</span><span class="fl">→</span><img src="captures/desk-marcy.jpg" alt="" width="1400" height="875" loading="lazy"></a></li>
-      <li class="reveal"><a href="realisation-bracconi-coaching.html"><span class="n">03</span><span class="nom">Bracconi Coaching</span><span class="dit">Coach et formatrice. Une offre claire, enfin trouvable en ligne.</span><span class="fl">→</span><img src="captures/desk-jen.jpg" alt="" width="1400" height="875" loading="lazy"></a></li>
-      <li class="reveal"><a href="realisation-pardon-kylian.html"><span class="n">04</span><span class="nom">Pardon Kylian</span><span class="dit">Campagne nationale. <b>100 597</b> signatures en 14 jours.</span><span class="fl">→</span><img src="captures/desk-kylian.jpg" alt="" width="1400" height="875" loading="lazy"></a></li>
-    </ol>
+    <div class="work-head reveal">
+      <h2 class="h2">Réalisations.</h2>
+      <p class="lead">Une plateforme, deux sites, une campagne nationale. Sur ordinateur comme sur téléphone.</p>
+    </div>
+
+    <div class="work-grid">
+      <article class="work-card work-card--wide work-card--night reveal">
+        <a class="wc-visual" href="realisation-bea.html" tabindex="-1" aria-hidden="true">
+        <div class="devices">
+          <div class="browser dv-desk"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">bea.immo</span></div><img class="dv-img" src="captures/desk-bea.jpg" alt="Béa, plateforme d'échange immobilier, sur ordinateur" width="1400" height="875" loading="lazy"></div>
+          <div class="dv-phone"><div class="dv-screen"><img src="captures/mob-bea.jpg" alt="Béa, plateforme d'échange immobilier, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
+        </div>
+        </a>
+        <div class="wc-text">
+          <p class="eyebrow">Application · Béa</p>
+          <h3 class="h3">Une plateforme immobilière, construite de zéro.</h3>
+          <p class="body">Conçue, lancée et opérée depuis 2020, avec plus de 15 000 propriétaires inscrits. « La Pépite » sur BFM Business, Pépite Sweet Award 2024.</p>
+          <div class="wc-kpi"><strong class="num" data-count="88" data-suffix=" %">88 %</strong><span>des propriétaires confient leur bien hors marché, uniquement à Béa.</span></div>
+          <a class="link-more" href="realisation-bea.html">Voir le projet</a>
+        </div>
+      </article>
+
+      <article class="work-card reveal lift">
+        <a class="wc-visual" href="realisation-marie-sybille-mahaux.html" tabindex="-1" aria-hidden="true" style="background:#E9EEE6;">
+        <div class="devices">
+          <div class="browser dv-desk"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">mariesybillemahaux.com</span></div><img class="dv-img" src="captures/desk-marcy.jpg" alt="Site de Marie-Sybille Mahaux, architecte d'intérieur, sur ordinateur" width="1400" height="875" loading="lazy"></div>
+          <div class="dv-phone"><div class="dv-screen"><img src="captures/mob-marcy.jpg" alt="Site de Marie-Sybille Mahaux, architecte d'intérieur, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
+        </div>
+        </a>
+        <div class="wc-text">
+          <p class="eyebrow">Site · Architecte d'intérieur</p>
+          <h3 class="h3">Un site à l'image de son travail.</h3>
+          <p class="body">Refonte complète, identité préservée, pensée pour transformer les visiteurs en rendez-vous. Elle le met à jour seule.</p>
+          <a class="link-more" href="realisation-marie-sybille-mahaux.html">Voir le projet</a>
+        </div>
+      </article>
+
+      <article class="work-card reveal lift">
+        <a class="wc-visual" href="realisation-bracconi-coaching.html" tabindex="-1" aria-hidden="true" style="background:#EFE6DA;">
+        <div class="devices">
+          <div class="browser dv-desk"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">bracconicoaching.fr</span></div><img class="dv-img" src="captures/desk-jen.jpg" alt="Site Bracconi Coaching et Formation, sur ordinateur" width="1400" height="875" loading="lazy"></div>
+          <div class="dv-phone"><div class="dv-screen"><img src="captures/mob-jen.jpg" alt="Site Bracconi Coaching et Formation, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
+        </div>
+        </a>
+        <div class="wc-text">
+          <p class="eyebrow">Site · Coach et formatrice</p>
+          <h3 class="h3">Enfin trouvable en ligne.</h3>
+          <p class="body">Une offre claire et un site pensé pour être trouvé : sa visibilité sur internet a changé du tout au tout.</p>
+          <a class="link-more" href="realisation-bracconi-coaching.html">Voir le projet</a>
+        </div>
+      </article>
+
+      <article class="work-card work-card--wide work-card--night work-card--flip reveal">
+        <a class="wc-visual" href="realisation-pardon-kylian.html" tabindex="-1" aria-hidden="true" style="background:#0E1C4F;">
+        <div class="devices">
+          <div class="browser dv-desk"><div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">pardonkylian.fr</span></div><img class="dv-img" src="captures/desk-kylian.jpg" alt="Pétition Pardon Kylian, sur ordinateur" width="1400" height="875" loading="lazy"></div>
+          <div class="dv-phone"><div class="dv-screen"><img src="captures/mob-kylian.jpg" alt="Pétition Pardon Kylian, sur téléphone" width="640" height="1384" loading="lazy"></div></div>
+        </div>
+        </a>
+        <div class="wc-text">
+          <p class="eyebrow">Campagne · Pardon Kylian</p>
+          <h3 class="h3">Une campagne nationale, lancée en quelques jours.</h3>
+          <p class="body">Une idée, un site, une mécanique virale. Reprise par M6, France 2, franceinfo, RMC, Le Figaro et Le Parisien.</p>
+          <div class="wc-kpi"><strong class="num" data-count="100597">100 597</strong><span>signatures en 14 jours.</span></div>
+          <a class="link-more" href="realisation-pardon-kylian.html">Voir le projet</a>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -159,6 +229,37 @@
   </div>
 </section>
 
+<section class="band band--soft" id="offres">
+  <div class="wrap">
+    <h2 class="h2 center reveal">Trois façons de commencer.</h2>
+    <div class="offers">
+      <a class="offer reveal lift" href="audit.html">
+        <span class="name">L'audit</span>
+        <span class="price num">250 €</span>
+        <span class="pitch">Votre site actuel, passé au crible.</span>
+        <ul><li>Vitesse, référencement, sécurité</li><li>Plan d'action priorisé</li><li>Restitution en visio</li></ul>
+        <span class="foot"><span>Déduit si vous lancez la refonte.</span><b>En savoir plus</b></span>
+      </a>
+      <a class="offer offer--main reveal lift" href="creation-site-internet.html">
+        <span class="name">Votre site</span>
+        <span class="price num"><small>dès</small> 2 500 €</span>
+        <span class="pitch">Création ou refonte. À votre image, pensé pour être trouvé.</span>
+        <ul><li>Design sur mesure, parfait sur mobile</li><li>Visible sur Google et dans les IA</li><li>Rapide et sécurisé (HTTPS)</li><li>Vous le modifiez seul</li><li>Il vous appartient, sans abonnement</li></ul>
+        <span class="foot"><span>En ligne en 5 semaines.</span><b>En savoir plus</b></span>
+      </a>
+      <a class="offer offer--night reveal lift" href="application-sur-mesure.html">
+        <span class="name">Votre application</span>
+        <span class="price">Sur devis</span>
+        <span class="pitch">Votre idée, en produit qui fonctionne.</span>
+        <ul><li>CRM, espace client, reporting</li><li>Maquettes cliquables</li><li>Développement et mise en ligne</li></ul>
+        <span class="foot"><span>Comme Béa et ses 15 000 propriétaires.</span><b>En savoir plus</b></span>
+      </a>
+    </div>
+    <p class="fineprint reveal">Prix nets. TVA non applicable, article 293 B du Code général des impôts.</p>
+    <div class="btns reveal" style="justify-content:center; margin-top:40px;"><a class="btn" href="#contact">Démarrer un projet</a></div>
+  </div>
+</section>
+
 <section class="band" id="methode">
   <div class="wrap">
     <h2 class="h2 center reveal">Simple, du début à la fin.</h2>
@@ -172,40 +273,9 @@
   </div>
 </section>
 
-<section class="band band--night" id="offres">
-  <div class="wrap">
-    <h2 class="h2 reveal">Trois façons<br>de <em>commencer.</em></h2>
-    <div class="etiquettes">
-      <a class="etiquette reveal" href="audit.html">
-        <i aria-hidden="true"></i>
-        <span class="name">L'audit</span>
-        <span class="price num">250 €</span>
-        <span class="pitch">Votre site actuel, passé au crible : vitesse, référencement, sécurité. Plan d'action et restitution en visio.</span>
-        <span class="foot">Déduit si vous lancez la refonte · En savoir plus →</span>
-      </a>
-      <a class="etiquette etiquette--main reveal" href="creation-site-internet.html">
-        <i aria-hidden="true"></i>
-        <span class="name">Votre site</span>
-        <span class="price num"><small>dès</small> 2 500 €</span>
-        <span class="pitch">Création ou refonte. Sur mesure, parfait sur mobile, rapide et sécurisé, visible sur Google. Vous le modifiez seul.</span>
-        <span class="foot">En ligne en 5 semaines · En savoir plus →</span>
-      </a>
-      <a class="etiquette reveal" href="application-sur-mesure.html">
-        <i aria-hidden="true"></i>
-        <span class="name">Votre application</span>
-        <span class="price">Sur devis</span>
-        <span class="pitch">CRM, espace client, reporting. Votre idée en produit qui fonctionne.</span>
-        <span class="foot">Comme Béa et ses 15 000 propriétaires · En savoir plus →</span>
-      </a>
-    </div>
-    <p class="fineprint reveal">Prix nets. TVA non applicable, article 293 B du Code général des impôts.</p>
-  </div>
-</section>
-
-
-<section class="band" id="apropos">
-  <div class="wrap apropos">
-    <div class="arche reveal"><img src="portrait.jpg" alt="Fred Kopp" width="840" height="1050" loading="lazy"><span class="note">c'est moi ↙</span></div>
+<section class="band band--night" id="apropos">
+  <div class="wrap about">
+    <img class="portrait reveal" src="portrait.jpg" alt="Fred Kopp" width="840" height="1050" loading="lazy">
     <div class="about-text reveal">
       <h2 class="h2">J'ai lancé ma startup.<br><em>Je lance la vôtre.</em></h2>
       <p class="body">Fondateur de Béa depuis 2020, passé par Qui Veut Être Mon Associé sur M6. Avant ça, huit ans à diriger une PME et des années en vente grands comptes.</p>
