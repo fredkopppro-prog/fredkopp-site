@@ -264,3 +264,37 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
   restart();
   document.addEventListener('visibilitychange', function () { if (document.hidden) { clearInterval(timer); } else { restart(); } });
 })();
+
+/* Méthode : un chemin pointillé relie les étapes, et se trace à l'arrivée dans l'écran */
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  [].forEach.call(document.querySelectorAll('[data-chemin]'), function (liste) {
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'chemin'); svg.setAttribute('aria-hidden', 'true');
+    var id = 'mc-' + Math.random().toString(36).slice(2, 7);
+    svg.innerHTML = '<defs><mask id="' + id + '" maskUnits="userSpaceOnUse"><path class="revele" pathLength="1" fill="none" stroke="#fff" stroke-width="16" stroke-dasharray="1" stroke-dashoffset="1"/></mask></defs><path class="pas" mask="url(#' + id + ')"/>';
+    liste.insertBefore(svg, liste.firstChild);
+    var pas = svg.querySelector('.pas'), revele = svg.querySelector('.revele');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function dessiner() {
+      var b = liste.getBoundingClientRect();
+      var pts = [].map.call(liste.querySelectorAll('.pas-ico'), function (d) {
+        var r = d.getBoundingClientRect(); return [r.left - b.left + r.width / 2, r.top - b.top + r.height / 2];
+      });
+      if (pts.length < 2) { return; }
+      var d = 'M' + pts[0][0] + ' ' + pts[0][1];
+      for (var i = 1; i < pts.length; i++) {
+        var a = pts[i - 1], c = pts[i], my = (a[1] + c[1]) / 2;
+        d += Math.abs(a[0] - c[0]) < 4 ? ' L' + c[0] + ' ' + c[1] : ' C' + a[0] + ' ' + my + ' ' + c[0] + ' ' + my + ' ' + c[0] + ' ' + c[1];
+      }
+      pas.setAttribute('d', d); revele.setAttribute('d', d);
+    }
+    function tracer() { revele.style.transition = reduce ? 'none' : 'stroke-dashoffset 2.4s cubic-bezier(.2,.7,.2,1)'; revele.style.strokeDashoffset = '0'; }
+    dessiner();
+    window.addEventListener('resize', dessiner);
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(dessiner); }
+    if (reduce || !('IntersectionObserver' in window)) { tracer(); return; }
+    var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { tracer(); io.disconnect(); } }, { threshold: .25 });
+    io.observe(liste);
+  });
+})();

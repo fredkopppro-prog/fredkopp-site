@@ -468,3 +468,37 @@ img.portrait { width: 100%; height: auto; object-fit: cover; display: block; }
   .quote figcaption { gap: 14px; margin-top: 22px; font-size: 14px; }
   .quote figcaption img { width: 72px; height: 72px; }
 }
+
+/* Méthode : étapes en quinconce reliées par un chemin pointillé (tracé par main.js) */
+.chemin-etapes { position: relative; list-style: none; margin: 72px auto 0; padding: 0; max-width: 980px; }
+.chemin-etapes li { position: relative; z-index: 1; width: calc(50% - 30px); display: flex; gap: 26px; align-items: flex-start; }
+.chemin-etapes li:nth-of-type(odd) { flex-direction: row-reverse; text-align: right; }
+.chemin-etapes li:nth-of-type(even) { margin-left: calc(50% + 30px); }
+.chemin-etapes li + li { margin-top: 24px; }
+.pas-rang { flex: none; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.pas-ico { width: 84px; height: 84px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); display: grid; place-items: center; color: var(--accent); }
+.pas-ico svg { width: 40px; height: 40px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.chemin-etapes li:last-child .pas-ico { background: var(--accent); color: #fff; }
+.pas-rang .k { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); white-space: nowrap; background: var(--bg); padding: 2px 6px; }
+.pas-corps { padding-top: 14px; max-width: 360px; }
+.pas-corps h3 { font-size: 28px; letter-spacing: -.02em; }
+.pas-corps p { margin-top: 8px; color: var(--muted); }
+.pas-ok { display: inline-block; margin-top: 12px; font: 500 12px var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink); }
+.pas-ok::before { content: "✓ "; color: var(--accent); }
+.chemin { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: visible; }
+.chemin .pas { fill: none; stroke: var(--accent); stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: .1 11; }
+@media (max-width: 760px) {
+  .chemin-etapes { margin-top: 48px; }
+  .chemin-etapes li, .chemin-etapes li:nth-of-type(odd), .chemin-etapes li:nth-of-type(even) { width: 100%; margin-left: 0; flex-direction: row; text-align: left; gap: 18px; }
+  .chemin-etapes li + li { margin-top: 40px; }
+  .pas-ico { width: 64px; height: 64px; } .pas-ico svg { width: 30px; height: 30px; }
+  .pas-rang .k { font-size: 11px; }
+  .pas-corps { padding-top: 4px; } .pas-corps h3 { font-size: 24px; }
+}
+.wc-depart { margin: 14px 0 6px; font: 500 11px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.wc-text > .wc-depart:first-of-type { margin-top: 10px; }
+.work-card--night .wc-depart { color: var(--on-night-muted); }
+.wc-res { margin-top: 14px; padding-left: 12px; border-left: 2px solid var(--accent); color: var(--ink); font-weight: 500; }
+.wc-depart + .wc-kpi { margin-top: 4px; }
+.hero .display { font-size: clamp(46px, 7.4vw, 96px); }
+.hero .display em.cercle { margin-left: .28em; }
