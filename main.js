@@ -203,30 +203,35 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
     if (!/^https?:\/\//i.test(u)) { u = 'https://' + u; }
     try { var x = new URL(u); return /\./.test(x.hostname) ? x.href : ''; } catch (e) { return ''; }
   }
-  function verdict(s) {
+  function verdict(s, sec) {
     var t = [];
-    if (s.performance < 50) { t.push('Votre site met trop de temps à s’afficher sur téléphone : une partie de vos visiteurs part avant de le voir.'); }
+    if (s.performance < 50 || sec >= 5) { t.push('Votre site met trop de temps à s’afficher sur téléphone : une partie de vos visiteurs part avant de le voir.'); }
     else if (s.performance < 90) { t.push('La vitesse sur téléphone est correcte, mais perfectible.'); }
     if (s.seo < 90) { t.push('Google comprend mal certaines pages : vous êtes moins bien placé que vous pourriez l’être.'); }
     if (s.accessibility < 80) { t.push('Une partie du site est difficile à lire ou à utiliser, surtout sur mobile.'); }
     if (!t.length) { t.push('Belle base technique. Reste à vérifier ce que Google ne mesure pas : votre message, votre parcours et la prise de contact.'); }
     return t.join(' ');
   }
-  /* Ce que ces notes coûtent, en chiffres publiés (Google, Backlinko, OMS) */
+  /* Ce que chaque note change pour le visiteur, en chiffres publiés (Google, Backlinko, OMS) : toujours affiché */
   function impact(s, sec) {
     var box = document.getElementById('psi-impact'), c = [];
-    var fr = function (n) { return String(n).replace('.', ','); };
-    if (sec >= 10) { c.push(['+123 %', 'de risque que le visiteur reparte : votre page met ' + fr(sec.toFixed(1)) + ' s à s’afficher, au lieu de 1 s.', 'Google']); }
-    else if (sec >= 6) { c.push(['+106 %', 'de risque que le visiteur reparte : votre page met ' + fr(sec.toFixed(1)) + ' s à s’afficher, au lieu de 1 s.', 'Google']); }
-    else if (sec >= 5) { c.push(['+90 %', 'de risque que le visiteur reparte : votre page met ' + fr(sec.toFixed(1)) + ' s à s’afficher, au lieu de 1 s.', 'Google']); }
-    else if (sec >= 3) { c.push(['53 %', 'des visites sur téléphone sont abandonnées quand une page met plus de 3 s à s’afficher. La vôtre : ' + fr(sec.toFixed(1)) + ' s.', 'Google']); }
-    if (s.seo < 90) { c.push(['0,63 %', 'des internautes cliquent sur un résultat de la 2e page Google. Le 1er résultat, lui, récupère 27,6 % des clics.', 'Backlinko']); }
-    if (s.accessibility < 90) { c.push(['1 sur 6', 'Une personne sur six vit avec un handicap important. Un site difficile à lire, c’est autant de clients qui décrochent.', 'OMS']); }
-    if (s['best-practices'] < 90) { c.push(['!', 'Erreurs, éléments non sécurisés, technologies dépassées : ce sont les signaux qui font hésiter un visiteur à vous laisser ses coordonnées.', 'Google Lighthouse']); }
-    box.innerHTML = c.length ? '<p class="psi-impact-t">Ce que ça vous coûte</p><div class="psi-impact-g">' + c.map(function (x) {
-      return '<div class="psi-card"><strong>' + x[0] + '</strong><p>' + x[1] + '</p><span>Source : ' + x[2] + '</span></div>';
-    }).join('') + '</div>' : '';
-    box.hidden = !c.length;
+    var t = sec ? String(sec.toFixed(1)).replace('.', ',') + ' s' : '';
+    if (!sec) { /* pas de mesure : rien sur la vitesse */ }
+    else if (sec >= 10) { c.push(['bad', '+123 %', 'de risque que le visiteur reparte : votre page met ' + t + ' à s’afficher, au lieu de 1 s.', 'Google']); }
+    else if (sec >= 6) { c.push(['bad', '+106 %', 'de risque que le visiteur reparte : votre page met ' + t + ' à s’afficher, au lieu de 1 s.', 'Google']); }
+    else if (sec >= 5) { c.push(['bad', '+90 %', 'de risque que le visiteur reparte : votre page met ' + t + ' à s’afficher, au lieu de 1 s.', 'Google']); }
+    else if (sec >= 3) { c.push(['bad', '53 %', 'des visites sur téléphone sont abandonnées quand une page met plus de 3 s à s’afficher. La vôtre : ' + t + '.', 'Google']); }
+    else { c.push(['ok', t, 'pour afficher votre page. Sous 3 s, vous gardez vos visiteurs : au-delà, 53 % des visites sur téléphone sont abandonnées.', 'Google']); }
+    if (s.seo < 90) { c.push(['bad', '0,63 %', 'des internautes cliquent sur un résultat de la 2e page Google. Le 1er résultat, lui, récupère 27,6 % des clics.', 'Backlinko']); }
+    else { c.push(['ok', '27,6 %', 'des clics vont au 1er résultat Google, 0,63 % à toute la 2e page. Votre base technique est prête : reste à viser les bons mots-clés.', 'Backlinko']); }
+    if (s.accessibility < 90) { c.push(['bad', '1 sur 6', 'Une personne sur six vit avec un handicap important. Un site difficile à lire, c’est autant de clients qui décrochent.', 'OMS']); }
+    else { c.push(['ok', '1 sur 6', 'Une personne sur six vit avec un handicap important. Votre site reste lisible pour elles : ce sont des clients que vous gardez.', 'OMS']); }
+    if (s['best-practices'] < 90) { c.push(['bad', '!', 'Erreurs, éléments non sécurisés, technologies dépassées : ce sont les signaux qui font hésiter un visiteur à vous laisser ses coordonnées.', 'Google Lighthouse']); }
+    else { c.push(['ok', '✓', 'Connexion sécurisée, pas d’erreurs, technologies à jour : les signaux qui rassurent un visiteur avant de vous laisser ses coordonnées.', 'Google Lighthouse']); }
+    box.innerHTML = '<p class="psi-impact-t">Ce que ça change pour vous</p><div class="psi-impact-g">' + c.map(function (x) {
+      return '<div class="psi-card psi-card--' + x[0] + '"><strong>' + x[1] + '</strong><p>' + x[2] + '</p><span>Source : ' + x[3] + '</span></div>';
+    }).join('') + '</div>';
+    box.hidden = false;
   }
   function draw(scores) {
     rings.innerHTML = '';
@@ -262,8 +267,8 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
       var lr = j.lighthouseResult, scores = {};
       cats.forEach(function (c) { scores[c[0]] = Math.round((lr.categories[c[0]].score || 0) * 100); });
       var lcp = lr.audits['largest-contentful-paint'];
-      document.getElementById('psi-lcp').textContent = lcp ? 'Affichage du contenu principal sur téléphone : ' + lcp.displayValue.replace(/ /g, ' ') : '';
-      document.getElementById('psi-verdict').textContent = verdict(scores);
+      document.getElementById('psi-lcp').textContent = lcp ? 'Affichage du contenu principal sur téléphone : ' + lcp.displayValue.replace(/\s/g, '\u00a0').replace(/(\d)\.(\d)/, '$1,$2') : '';
+      document.getElementById('psi-verdict').textContent = verdict(scores, lcp ? lcp.numericValue / 1000 : 0);
       impact(scores, lcp ? lcp.numericValue / 1000 : 0);
       document.getElementById('psi-cta').setAttribute('data-projet', 'Audit de ' + url + ' (scores Google : vitesse ' + scores.performance + ', référencement ' + scores.seo + ').');
       scan.hidden = true; out.hidden = false; draw(scores);
