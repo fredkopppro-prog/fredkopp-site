@@ -537,3 +537,11 @@ img.portrait { width: 100%; height: auto; object-fit: cover; display: block; }
 @media (max-width: 760px) { .shots-2 { grid-template-columns: 1fr; gap: 0; } }
 .psi-card--ok strong { color: #9BF0C4; }
 .psi-card--bad strong { color: #FFC2B8; }
+
+/* Page Béa : chiffres et cartes sur fond bleu, alignés sur la même grille */
+.band--night .stats, .band--night .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+@media (max-width: 760px) { .band--night .feature-grid { grid-template-columns: 1fr; } }
+.band--night .stat { padding: 0 32px; }
+.band--night .stat .num { color: #FFFFFF; }
+.band--night .feature h3 { color: var(--accent); }
+@media (max-width: 600px) { .band--night .stat { padding: 0; } }
