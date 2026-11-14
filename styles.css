@@ -517,3 +517,6 @@ img.portrait { width: 100%; height: auto; object-fit: cover; display: block; }
 .ring-tip li.ici { background: var(--bg-soft); color: var(--ink); font-weight: 700; }
 .ring-tip li.ici::after { content: "← vous"; margin-left: auto; font-weight: 500; color: var(--muted); }
 @media (max-width: 520px) { .ring-tip { width: 240px; } .rings .ring:nth-child(odd) .ring-tip { left: 0; transform: translate(-10px, 6px); } .rings .ring:nth-child(odd) .ring-tip::after { left: 66px; } .rings .ring:nth-child(even) .ring-tip { left: auto; right: 0; transform: translate(10px, 6px); } .rings .ring:nth-child(even) .ring-tip::after { left: auto; right: 58px; } .rings .ring.open .ring-tip { transform: translate(0, 0); } }
+/* Test de site : le bouton « Recevoir l'audit » se détache du fond bleu */
+.psi-out .btn { background: #FFFFFF; color: var(--accent); box-shadow: 0 10px 30px rgba(8, 18, 70, .35); }
+.psi-out .btn:hover { box-shadow: 0 14px 36px rgba(8, 18, 70, .45); }
