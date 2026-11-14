@@ -189,6 +189,13 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
   var input = document.getElementById('psi-url'), scan = document.getElementById('psi-scan'), err = document.getElementById('psi-err');
   var out = document.getElementById('psi-out'), rings = document.getElementById('psi-rings'), go = document.getElementById('psi-go');
   var cats = [['performance', 'Vitesse'], ['seo', 'Référencement'], ['accessibility', 'Accessibilité'], ['best-practices', 'Bonnes pratiques']];
+  var defs = {
+    'performance': 'Le temps que met votre site à s’afficher et à réagir sur un téléphone. Trop lent, et le visiteur repart avant de vous lire.',
+    'seo': 'Les bases pour que Google trouve votre site, le comprenne et l’affiche bien dans ses résultats : titres, descriptions, liens.',
+    'accessibility': 'Votre site est-il lisible et utilisable par tous ? Contrastes, taille des textes, boutons assez grands, et lecture possible pour les personnes malvoyantes.',
+    'best-practices': 'La propreté technique : connexion sécurisée (HTTPS), pas d’erreurs, des technologies à jour. C’est ce qui inspire confiance aux navigateurs.'
+  };
+  var paliers = [[0, 49, 'Mauvais', '#FF7A6B'], [50, 89, 'À améliorer', '#F5A524'], [90, 100, 'Bon', '#4CC38A']];
   var color = function (v) { return v >= 90 ? '#4CC38A' : (v >= 50 ? '#F5A524' : '#FF7A6B'); };
 
   function normalize(u) {
@@ -205,15 +212,40 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
     if (!t.length) { t.push('Belle base technique. Reste à vérifier ce que Google ne mesure pas : votre message, votre parcours et la prise de contact.'); }
     return t.join(' ');
   }
+  /* Ce que ces notes coûtent, en chiffres publiés (Google, Backlinko, OMS) */
+  function impact(s, sec) {
+    var box = document.getElementById('psi-impact'), c = [];
+    var fr = function (n) { return String(n).replace('.', ','); };
+    if (sec >= 10) { c.push(['+123 %', 'de risque que le visiteur reparte : votre page met ' + fr(sec.toFixed(1)) + ' s à s’afficher, au lieu de 1 s.', 'Google']); }
+    else if (sec >= 6) { c.push(['+106 %', 'de risque que le visiteur reparte : votre page met ' + fr(sec.toFixed(1)) + ' s à s’afficher, au lieu de 1 s.', 'Google']); }
+    else if (sec >= 5) { c.push(['+90 %', 'de risque que le visiteur reparte : votre page met ' + fr(sec.toFixed(1)) + ' s à s’afficher, au lieu de 1 s.', 'Google']); }
+    else if (sec >= 3) { c.push(['53 %', 'des visites sur téléphone sont abandonnées quand une page met plus de 3 s à s’afficher. La vôtre : ' + fr(sec.toFixed(1)) + ' s.', 'Google']); }
+    if (s.seo < 90) { c.push(['0,63 %', 'des internautes cliquent sur un résultat de la 2e page Google. Le 1er résultat, lui, récupère 27,6 % des clics.', 'Backlinko']); }
+    if (s.accessibility < 90) { c.push(['1 sur 6', 'Une personne sur six vit avec un handicap important. Un site difficile à lire, c’est autant de clients qui décrochent.', 'OMS']); }
+    if (s['best-practices'] < 90) { c.push(['!', 'Erreurs, éléments non sécurisés, technologies dépassées : ce sont les signaux qui font hésiter un visiteur à vous laisser ses coordonnées.', 'Google Lighthouse']); }
+    box.innerHTML = c.length ? '<p class="psi-impact-t">Ce que ça vous coûte</p><div class="psi-impact-g">' + c.map(function (x) {
+      return '<div class="psi-card"><strong>' + x[0] + '</strong><p>' + x[1] + '</p><span>Source : ' + x[2] + '</span></div>';
+    }).join('') + '</div>' : '';
+    box.hidden = !c.length;
+  }
   function draw(scores) {
     rings.innerHTML = '';
     var C = 2 * Math.PI * 48;
     cats.forEach(function (c) {
       var v = scores[c[0]];
-      var d = document.createElement('div'); d.className = 'ring';
+      var d = document.createElement('button'); d.type = 'button'; d.className = 'ring';
+      var echelle = paliers.map(function (p) {
+        return '<li' + (v >= p[0] && v <= p[1] ? ' class="ici"' : '') + '><i style="background:' + p[3] + '"></i>' + p[0] + ' à ' + p[1] + ' · ' + p[2] + '</li>';
+      }).join('');
       d.innerHTML = '<svg viewBox="0 0 112 112" aria-hidden="true"><circle class="track" cx="56" cy="56" r="48"></circle><circle class="val" cx="56" cy="56" r="48" stroke="' + color(v) + '" stroke-dasharray="' + C + '" stroke-dashoffset="' + C + '"></circle></svg>' +
-        '<div class="ring-num" style="color:' + color(v) + '">' + v + '</div><span>' + c[1] + '</span>';
-      d.setAttribute('role', 'img'); d.setAttribute('aria-label', c[1] + ' : ' + v + ' sur 100');
+        '<div class="ring-num" style="color:' + color(v) + '">' + v + '</div><span>' + c[1] + ' <b aria-hidden="true">?</b></span>' +
+        '<div class="ring-tip" role="tooltip"><strong>' + c[1] + '</strong><p>' + defs[c[0]] + '</p><ul>' + echelle + '</ul></div>';
+      d.setAttribute('aria-label', c[1] + ' : ' + v + ' sur 100. ' + defs[c[0]]);
+      d.addEventListener('click', function () {
+        var open = d.classList.contains('open');
+        [].forEach.call(rings.querySelectorAll('.ring.open'), function (x) { x.classList.remove('open'); });
+        if (!open) { d.classList.add('open'); }
+      });
       rings.appendChild(d);
       requestAnimationFrame(function () { requestAnimationFrame(function () { d.querySelector('.val').style.strokeDashoffset = C * (1 - v / 100); }); });
     });
@@ -232,6 +264,7 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
       var lcp = lr.audits['largest-contentful-paint'];
       document.getElementById('psi-lcp').textContent = lcp ? 'Affichage du contenu principal sur téléphone : ' + lcp.displayValue.replace(/ /g, ' ') : '';
       document.getElementById('psi-verdict').textContent = verdict(scores);
+      impact(scores, lcp ? lcp.numericValue / 1000 : 0);
       document.getElementById('psi-cta').setAttribute('data-projet', 'Audit de ' + url + ' (scores Google : vitesse ' + scores.performance + ', référencement ' + scores.seo + ').');
       scan.hidden = true; out.hidden = false; draw(scores);
     }).catch(function () {
