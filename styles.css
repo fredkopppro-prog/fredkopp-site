@@ -535,3 +535,5 @@ img.portrait { width: 100%; height: auto; object-fit: cover; display: block; }
 .shot figcaption { margin-top: 12px; font-size: 15px; color: var(--muted); text-align: center; }
 .shots-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 @media (max-width: 760px) { .shots-2 { grid-template-columns: 1fr; gap: 0; } }
+.psi-card--ok strong { color: #9BF0C4; }
+.psi-card--bad strong { color: #FFC2B8; }
