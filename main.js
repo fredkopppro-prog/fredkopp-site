@@ -336,3 +336,60 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
     io.observe(liste);
   });
 })();
+
+/* Menu burger sur téléphone : construit à partir des liens du menu de la page */
+(function () {
+  var links = document.querySelector('.site-header .nav-links');
+  if (!links) { return; }
+  var onHome = !!document.getElementById('contact') && !!document.getElementById('faq');
+  var base = onHome ? '' : 'index.html';
+  var ico = '<svg width="20" height="14" viewBox="0 0 20 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M1 1h18M1 7h18M1 13h18"/></svg>';
+  var croix = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 2l12 12M14 2L2 14"/></svg>';
+
+  var btn = document.createElement('button');
+  btn.type = 'button'; btn.className = 'burger';
+  btn.setAttribute('aria-label', 'Ouvrir le menu');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.setAttribute('aria-controls', 'menu-mobile');
+  btn.innerHTML = ico;
+  links.appendChild(btn);
+
+  var panel = document.createElement('div');
+  panel.id = 'menu-mobile'; panel.className = 'menu-mobile'; panel.hidden = true;
+  panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-modal', 'true'); panel.setAttribute('aria-label', 'Menu');
+  var top = document.createElement('div'); top.className = 'menu-mobile-top';
+  var logo = document.createElement('a'); logo.href = 'index.html'; logo.setAttribute('aria-label', 'Fred Kopp, accueil');
+  logo.innerHTML = '<img src="logo-empile.svg" alt="" width="68" height="42">';
+  var fermer = document.createElement('button'); fermer.type = 'button'; fermer.className = 'burger';
+  fermer.setAttribute('aria-label', 'Fermer le menu'); fermer.innerHTML = croix;
+  top.appendChild(logo); top.appendChild(fermer);
+
+  var nav = document.createElement('nav'); nav.setAttribute('aria-label', 'Menu principal');
+  var cta = null;
+  Array.prototype.forEach.call(links.querySelectorAll('a'), function (a) {
+    if (a.classList.contains('btn')) { cta = a; return; }
+    var c = document.createElement('a'); c.href = a.getAttribute('href'); c.textContent = a.textContent; nav.appendChild(c);
+  });
+  if (cta && cta.textContent.trim() !== 'Me contacter') {
+    var long = document.createElement('span'); long.className = 'cta-long'; long.textContent = cta.textContent;
+    var court = document.createElement('span'); court.className = 'cta-court'; court.textContent = 'Me contacter';
+    cta.textContent = ''; cta.appendChild(long); cta.appendChild(court);
+  }
+  var f = document.createElement('a'); f.href = base + '#faq'; f.textContent = 'Questions fréquentes'; nav.appendChild(f);
+
+  var bas = document.createElement('div'); bas.className = 'menu-mobile-bas';
+  var b = document.createElement('a'); b.className = 'btn'; b.href = base + '#contact'; b.textContent = 'Comment puis-je vous aider ?';
+  var m = document.createElement('a'); m.className = 'mail'; m.href = 'mailto:fred@fredkopp.com'; m.textContent = 'fred@fredkopp.com';
+  bas.appendChild(b); bas.appendChild(m);
+
+  panel.appendChild(top); panel.appendChild(nav); panel.appendChild(bas);
+  document.body.appendChild(panel);
+
+  function ouvrir() { panel.hidden = false; document.body.classList.add('menu-ouvert'); btn.setAttribute('aria-expanded', 'true'); fermer.focus(); }
+  function fermerMenu(rendreFocus) { panel.hidden = true; document.body.classList.remove('menu-ouvert'); btn.setAttribute('aria-expanded', 'false'); if (rendreFocus) { btn.focus(); } }
+  btn.addEventListener('click', ouvrir);
+  fermer.addEventListener('click', function () { fermerMenu(true); });
+  panel.addEventListener('click', function (e) { if (e.target.closest('nav a, .menu-mobile-bas a')) { fermerMenu(false); } });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) { fermerMenu(true); } });
+  window.addEventListener('resize', function () { if (window.innerWidth > 760 && !panel.hidden) { fermerMenu(false); } });
+})();
