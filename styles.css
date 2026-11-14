@@ -500,3 +500,5 @@ img.portrait { width: 100%; height: auto; object-fit: cover; display: block; }
 .work-card--night .wc-depart { color: var(--on-night-muted); }
 .wc-res { margin-top: 14px; padding-left: 12px; border-left: 2px solid var(--accent); color: var(--ink); font-weight: 500; }
 .wc-depart + .wc-kpi { margin-top: 4px; }
+.hero .display { font-size: clamp(46px, 7.4vw, 96px); }
+.hero .display em.cercle { margin-left: .28em; }
