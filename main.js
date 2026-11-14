@@ -189,6 +189,13 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
   var input = document.getElementById('psi-url'), scan = document.getElementById('psi-scan'), err = document.getElementById('psi-err');
   var out = document.getElementById('psi-out'), rings = document.getElementById('psi-rings'), go = document.getElementById('psi-go');
   var cats = [['performance', 'Vitesse'], ['seo', 'Référencement'], ['accessibility', 'Accessibilité'], ['best-practices', 'Bonnes pratiques']];
+  var defs = {
+    'performance': 'Le temps que met votre site à s’afficher et à réagir sur un téléphone. Trop lent, et le visiteur repart avant de vous lire.',
+    'seo': 'Les bases pour que Google trouve votre site, le comprenne et l’affiche bien dans ses résultats : titres, descriptions, liens.',
+    'accessibility': 'Votre site est-il lisible et utilisable par tous ? Contrastes, taille des textes, boutons assez grands, et lecture possible pour les personnes malvoyantes.',
+    'best-practices': 'La propreté technique : connexion sécurisée (HTTPS), pas d’erreurs, des technologies à jour. C’est ce qui inspire confiance aux navigateurs.'
+  };
+  var paliers = [[0, 49, 'Mauvais', '#FF7A6B'], [50, 89, 'À améliorer', '#F5A524'], [90, 100, 'Bon', '#4CC38A']];
   var color = function (v) { return v >= 90 ? '#4CC38A' : (v >= 50 ? '#F5A524' : '#FF7A6B'); };
 
   function normalize(u) {
@@ -210,10 +217,19 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
     var C = 2 * Math.PI * 48;
     cats.forEach(function (c) {
       var v = scores[c[0]];
-      var d = document.createElement('div'); d.className = 'ring';
+      var d = document.createElement('button'); d.type = 'button'; d.className = 'ring';
+      var echelle = paliers.map(function (p) {
+        return '<li' + (v >= p[0] && v <= p[1] ? ' class="ici"' : '') + '><i style="background:' + p[3] + '"></i>' + p[0] + ' à ' + p[1] + ' · ' + p[2] + '</li>';
+      }).join('');
       d.innerHTML = '<svg viewBox="0 0 112 112" aria-hidden="true"><circle class="track" cx="56" cy="56" r="48"></circle><circle class="val" cx="56" cy="56" r="48" stroke="' + color(v) + '" stroke-dasharray="' + C + '" stroke-dashoffset="' + C + '"></circle></svg>' +
-        '<div class="ring-num" style="color:' + color(v) + '">' + v + '</div><span>' + c[1] + '</span>';
-      d.setAttribute('role', 'img'); d.setAttribute('aria-label', c[1] + ' : ' + v + ' sur 100');
+        '<div class="ring-num" style="color:' + color(v) + '">' + v + '</div><span>' + c[1] + ' <b aria-hidden="true">?</b></span>' +
+        '<div class="ring-tip" role="tooltip"><strong>' + c[1] + '</strong><p>' + defs[c[0]] + '</p><ul>' + echelle + '</ul></div>';
+      d.setAttribute('aria-label', c[1] + ' : ' + v + ' sur 100. ' + defs[c[0]]);
+      d.addEventListener('click', function () {
+        var open = d.classList.contains('open');
+        [].forEach.call(rings.querySelectorAll('.ring.open'), function (x) { x.classList.remove('open'); });
+        if (!open) { d.classList.add('open'); }
+      });
       rings.appendChild(d);
       requestAnimationFrame(function () { requestAnimationFrame(function () { d.querySelector('.val').style.strokeDashoffset = C * (1 - v / 100); }); });
     });
