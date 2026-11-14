@@ -520,3 +520,12 @@ img.portrait { width: 100%; height: auto; object-fit: cover; display: block; }
 /* Test de site : le bouton « Recevoir l'audit » se détache du fond bleu */
 .psi-out .btn { background: #FFFFFF; color: var(--accent); box-shadow: 0 10px 30px rgba(8, 18, 70, .35); }
 .psi-out .btn:hover { box-shadow: 0 14px 36px rgba(8, 18, 70, .45); }
+
+/* Test de site : ce que les notes coûtent, en chiffres */
+.psi-impact { max-width: 980px; margin: 36px auto 0; }
+.psi-impact-t { font: 500 12px var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--on-night-muted); }
+.psi-impact-g { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-top: 16px; text-align: left; }
+.psi-card { background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .18); border-radius: 18px; padding: 20px 20px 16px; display: flex; flex-direction: column; }
+.psi-card strong { font-size: 40px; line-height: 1; font-weight: 700; letter-spacing: -.04em; color: #FFFFFF; }
+.psi-card p { margin-top: 10px; font-size: 15px; line-height: 1.45; color: var(--on-night-muted); flex: 1; }
+.psi-card span { margin-top: 12px; font: 500 11px var(--f-mono); letter-spacing: .06em; color: rgba(255, 255, 255, .55); }

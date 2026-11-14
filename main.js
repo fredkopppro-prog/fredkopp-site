@@ -212,6 +212,22 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
     if (!t.length) { t.push('Belle base technique. Reste à vérifier ce que Google ne mesure pas : votre message, votre parcours et la prise de contact.'); }
     return t.join(' ');
   }
+  /* Ce que ces notes coûtent, en chiffres publiés (Google, Backlinko, OMS) */
+  function impact(s, sec) {
+    var box = document.getElementById('psi-impact'), c = [];
+    var fr = function (n) { return String(n).replace('.', ','); };
+    if (sec >= 10) { c.push(['+123 %', 'de risque que le visiteur reparte : votre page met ' + fr(sec.toFixed(1)) + ' s à s’afficher, au lieu de 1 s.', 'Google']); }
+    else if (sec >= 6) { c.push(['+106 %', 'de risque que le visiteur reparte : votre page met ' + fr(sec.toFixed(1)) + ' s à s’afficher, au lieu de 1 s.', 'Google']); }
+    else if (sec >= 5) { c.push(['+90 %', 'de risque que le visiteur reparte : votre page met ' + fr(sec.toFixed(1)) + ' s à s’afficher, au lieu de 1 s.', 'Google']); }
+    else if (sec >= 3) { c.push(['53 %', 'des visites sur téléphone sont abandonnées quand une page met plus de 3 s à s’afficher. La vôtre : ' + fr(sec.toFixed(1)) + ' s.', 'Google']); }
+    if (s.seo < 90) { c.push(['0,63 %', 'des internautes cliquent sur un résultat de la 2e page Google. Le 1er résultat, lui, récupère 27,6 % des clics.', 'Backlinko']); }
+    if (s.accessibility < 90) { c.push(['1 sur 6', 'Une personne sur six vit avec un handicap important. Un site difficile à lire, c’est autant de clients qui décrochent.', 'OMS']); }
+    if (s['best-practices'] < 90) { c.push(['!', 'Erreurs, éléments non sécurisés, technologies dépassées : ce sont les signaux qui font hésiter un visiteur à vous laisser ses coordonnées.', 'Google Lighthouse']); }
+    box.innerHTML = c.length ? '<p class="psi-impact-t">Ce que ça vous coûte</p><div class="psi-impact-g">' + c.map(function (x) {
+      return '<div class="psi-card"><strong>' + x[0] + '</strong><p>' + x[1] + '</p><span>Source : ' + x[2] + '</span></div>';
+    }).join('') + '</div>' : '';
+    box.hidden = !c.length;
+  }
   function draw(scores) {
     rings.innerHTML = '';
     var C = 2 * Math.PI * 48;
@@ -248,6 +264,7 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
       var lcp = lr.audits['largest-contentful-paint'];
       document.getElementById('psi-lcp').textContent = lcp ? 'Affichage du contenu principal sur téléphone : ' + lcp.displayValue.replace(/ /g, ' ') : '';
       document.getElementById('psi-verdict').textContent = verdict(scores);
+      impact(scores, lcp ? lcp.numericValue / 1000 : 0);
       document.getElementById('psi-cta').setAttribute('data-projet', 'Audit de ' + url + ' (scores Google : vitesse ' + scores.performance + ', référencement ' + scores.seo + ').');
       scan.hidden = true; out.hidden = false; draw(scores);
     }).catch(function () {
