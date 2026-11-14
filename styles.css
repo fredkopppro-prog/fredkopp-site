@@ -180,7 +180,7 @@ p { margin: 0; }
 .quote { flex: 1 1 400px; margin: 0; background: var(--bg-soft); border-radius: var(--r-l); padding: clamp(32px, 5vw, 52px); }
 .quote blockquote { margin: 0; font-weight: 500; letter-spacing: -.02em; font-size: clamp(26px, 2.8vw, 32px); line-height: 1.25; letter-spacing: -.01em; }
 .quote figcaption { margin-top: 28px; display: flex; align-items: center; gap: 14px; font-size: 15px; color: var(--muted); }
-.quote figcaption img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.quote figcaption img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
 .quote figcaption i { width: 44px; height: 44px; border-radius: 50%; display: block; flex-shrink: 0; }
 
 /* Offers */
