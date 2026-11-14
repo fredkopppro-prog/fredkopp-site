@@ -184,7 +184,7 @@ var FORM_ENDPOINT = 'https://formsubmit.co/ajax/fred.kopp.pro@gmail.com';
 
 /* Test de site instantané (Google PageSpeed Insights) */
 (function () {
-  var PSI_KEY = ''; /* clé API Google gratuite, à ajouter pour lever la limite d'usage */
+  var PSI_KEY = 'AIzaSyBydVZLVwWwKUcJzzHVqnY7aL21ZjU-oUk'; /* clé API Google gratuite, à ajouter pour lever la limite d'usage */
   var f = document.getElementById('psi-form'); if (!f) { return; }
   var input = document.getElementById('psi-url'), scan = document.getElementById('psi-scan'), err = document.getElementById('psi-err');
   var out = document.getElementById('psi-out'), rings = document.getElementById('psi-rings'), go = document.getElementById('psi-go');
