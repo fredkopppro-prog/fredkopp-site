@@ -1,0 +1,24 @@
+name: Réveil de la base du CRM
+
+# L'offre gratuite de Supabase met une base en veille après une semaine sans visite.
+# Ce passage quotidien l'en empêche : il appelle la fonction publique de suivi
+# avec un jeton qui n'existe pas (aucune donnée lue ni modifiée).
+on:
+  schedule:
+    - cron: '23 5 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  reveil:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Appeler la base
+        run: |
+          curl --fail --silent --show-error --max-time 30 \
+            -X POST 'https://epxagfydakpojkotnfdr.supabase.co/rest/v1/rpc/suivi' \
+            -H 'apikey: sb_publishable_poKEdJgeKUc6GJMqzPXtTQ_HrzUQT14' \
+            -H 'Content-Type: application/json' \
+            -d '{"p_jeton":"reveil-quotidien-000000000"}'
