@@ -1,0 +1,105 @@
+/* Base commune (page de suivi et CRM) + carte de suivi. Couleurs et polices du site fredkopp.com. */
+:root {
+  --fond: #FFFFFF;
+  --fond-doux: #F4F6F9;
+  --encre: #14171C;
+  --encre-2: #3D434D;
+  --encre-douce: #5F6672;
+  --trait: #E1E5EB;
+  --trait-fort: #AEB5C0;
+  --bleu: #2350FF;
+  --bleu-profond: #1C44E0;
+  --bleu-pale: #DCE4FF;
+  --bleu-voile: #E3EAFF;
+  --f-sans: "Geist", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --f-mono: "Geist Mono", ui-monospace, Menlo, monospace;
+  --f-serif: "Fraunces", Georgia, serif;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--fond); color: var(--encre-2);
+  font-family: var(--f-sans); font-size: 16px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, p { margin: 0; }
+a { color: var(--bleu); }
+a:hover { color: var(--bleu-profond); }
+:focus-visible { outline: 3px solid var(--bleu); outline-offset: 3px; border-radius: 6px; }
+[hidden] { display: none !important; }
+
+.sur {
+  font-family: var(--f-mono); font-size: 12px; font-weight: 500; line-height: 1.4;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--encre-douce);
+}
+.nv { color: var(--encre-douce); font-size: 14px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 0 20px; border-radius: 999px; border: 0;
+  background: var(--bleu); color: #FFFFFF; font: 600 15px/1 var(--f-sans);
+  text-decoration: none; cursor: pointer;
+}
+.btn:hover { background: var(--bleu-profond); color: #FFFFFF; }
+.btn:disabled { opacity: .55; cursor: default; }
+.btn--clair { background: #FFFFFF; color: var(--encre); box-shadow: inset 0 0 0 1px var(--trait-fort); }
+.btn--clair:hover { background: var(--fond-doux); color: var(--encre); }
+
+.logo-fk { display: inline-flex; }
+.logo-fk img { display: block; width: 58px; height: auto; }
+
+/* Pastilles d'étape */
+.pt {
+  flex: none; width: 28px; height: 28px; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; line-height: 1;
+}
+.pt--fait { background: var(--bleu); color: #FFFFFF; }
+.pt--cours { background: var(--encre); color: #FFFFFF; }
+.pt--venir { background: #FFFFFF; color: var(--encre-douce); box-shadow: inset 0 0 0 1px var(--trait-fort); }
+.tn { font-weight: 600; color: var(--encre); font-size: 16px; }
+
+/* Page de suivi */
+.sv-page { max-width: 640px; margin: 0 auto; padding: 28px 20px 72px; display: flex; flex-direction: column; gap: 28px; }
+.sv-entete { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.sv-contenu { display: flex; flex-direction: column; gap: 40px; }
+
+.sv-carte {
+  background: var(--bleu); color: #FFFFFF; border-radius: 32px; padding: 32px 28px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.sv-logo { font-weight: 800; font-size: 15px; line-height: .9; letter-spacing: -.04em; }
+.sv-titre {
+  font-size: clamp(30px, 7vw, 44px); line-height: 1.05; letter-spacing: -.03em; font-weight: 700;
+  color: #FFFFFF; text-wrap: balance; overflow-wrap: anywhere;
+}
+.sv-titre em { font-family: var(--f-serif); font-style: italic; font-weight: 500; color: var(--bleu-pale); }
+.sv-ligne { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; margin-bottom: 8px; }
+.sv-barre { height: 12px; border-radius: 999px; background: var(--bleu-profond); overflow: hidden; }
+.sv-barre i { display: block; height: 100%; width: 0; background: #FFFFFF; border-radius: 999px; transition: width .9s cubic-bezier(.2, .7, .2, 1); }
+.sv-moment { font-size: 15px; color: var(--bleu-pale); margin-top: 10px; }
+.sv-suite, .sv-calme { font-size: 15px; color: var(--bleu-pale); }
+.sv-calme { color: #FFFFFF; }
+
+.sv-attendu { background: #FFFFFF; color: var(--encre-2); border-radius: 20px; padding: 20px; }
+.sv-attendu .sur { color: var(--bleu); font-size: 11px; }
+.sv-quoi { font-weight: 600; color: var(--encre); font-size: 18px; line-height: 1.3; margin-top: 8px; overflow-wrap: anywhere; }
+.sv-detail { font-size: 15px; margin-top: 6px; white-space: pre-line; overflow-wrap: anywhere; }
+.sv-attendu .btn { margin-top: 16px; }
+.sv-faux { cursor: default; }
+.sv-faux:hover { background: var(--bleu); }
+
+.sv-chemin { display: flex; flex-direction: column; gap: 20px; }
+.sv-etapes { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+.sv-etape { display: flex; gap: 14px; align-items: flex-start; }
+.sv-etape--venir .tn { color: var(--encre-douce); }
+.sv-etat { font-weight: 400; font-size: 14px; color: var(--encre-douce); }
+.sv-etape--cours .sv-etat { color: var(--bleu); font-weight: 600; }
+.sv-pied { font-size: 15px; color: var(--encre-douce); border-top: 1px solid var(--trait); padding-top: 24px; }
+
+.sv-message { background: var(--fond-doux); border-radius: 32px; padding: 40px 28px; display: flex; flex-direction: column; gap: 12px; }
+.sv-message h1 { font-size: clamp(28px, 6vw, 36px); line-height: 1.08; letter-spacing: -.03em; color: var(--bleu); text-wrap: balance; }
+
+@media (prefers-reduced-motion: reduce) { .sv-barre i { transition: none; } }

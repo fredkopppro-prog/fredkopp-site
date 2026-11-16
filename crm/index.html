@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://epxagfydakpojkotnfdr.supabase.co; form-action 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Clients · Fred Kopp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@500&family=Fraunces:ital,opsz,wght@1,9..144,500&display=swap">
+<link rel="stylesheet" href="/suivi/suivi.css?v=1">
+<link rel="stylesheet" href="crm.css?v=1">
+<link rel="icon" href="/favicon-fk.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+
+<p id="chargement" class="plein nv">Chargement…</p>
+
+<main id="ecran-connexion" class="plein" hidden>
+  <div class="porte">
+    <span class="logo-fk"><img src="/logo-empile.svg" alt="Fred Kopp" width="58" height="36"></span>
+    <h1 class="porte-titre">Espace <em>clients</em>.</h1>
+    <p id="connexion-info" class="info" role="status" hidden></p>
+    <form id="form-connexion" class="form" novalidate>
+      <label>E-mail <input id="c-email" type="email" autocomplete="username" required></label>
+      <label>Mot de passe <input id="c-mdp" type="password" autocomplete="current-password" required></label>
+      <p id="c-erreur" class="erreur" role="alert" hidden></p>
+      <button class="btn" type="submit">Se connecter</button>
+    </form>
+    <button id="lien-oubli" class="lien" type="button" aria-expanded="false" aria-controls="form-oubli">Première connexion ou mot de passe oublié ?</button>
+    <form id="form-oubli" class="form" novalidate hidden>
+      <label>Votre e-mail <input id="o-email" type="email" autocomplete="username" required></label>
+      <p id="o-msg" class="info" role="status" hidden></p>
+      <button class="btn btn--clair" type="submit">Recevoir un lien par e-mail</button>
+    </form>
+  </div>
+</main>
+
+<main id="ecran-mdp" class="plein" hidden>
+  <div class="porte">
+    <span class="logo-fk"><img src="/logo-empile.svg" alt="Fred Kopp" width="58" height="36"></span>
+    <h1 class="porte-titre">Choisissez votre <em>mot de passe</em>.</h1>
+    <form id="form-mdp" class="form" novalidate>
+      <label>E-mail <input id="m-email" type="email" autocomplete="username" readonly></label>
+      <label>Nouveau mot de passe <input id="m-mdp" type="password" autocomplete="new-password" minlength="10" required></label>
+      <label>Encore une fois <input id="m-mdp2" type="password" autocomplete="new-password" minlength="10" required></label>
+      <p class="nv">10 caractères au minimum.</p>
+      <p id="m-erreur" class="erreur" role="alert" hidden></p>
+      <button class="btn" type="submit">Enregistrer et entrer</button>
+    </form>
+  </div>
+</main>
+
+<main id="ecran-refus" class="plein" hidden>
+  <div class="porte">
+    <h1 class="porte-titre">Accès <em>réservé</em>.</h1>
+    <p id="refus-texte">Ce compte n’a pas accès à cet espace.</p>
+    <button id="refus-sortir" class="btn btn--clair" type="button">Se déconnecter</button>
+  </div>
+</main>
+
+<div id="app" hidden>
+  <header class="barre">
+    <div class="barre-g">
+      <a class="logo-fk" href="#/" aria-label="Tous les clients"><img src="/logo-empile.svg" alt="Fred Kopp" width="58" height="36"></a>
+      <nav aria-label="Navigation"><a id="nav-clients" href="#/">Clients</a></nav>
+    </div>
+    <div class="barre-d">
+      <button id="btn-deconnexion" class="lien lien--gris" type="button">Déconnexion</button>
+      <button id="btn-nouveau" class="btn" type="button">Nouveau client</button>
+    </div>
+  </header>
+  <main id="vue"></main>
+</div>
+
+<dialog id="dlg-projet" class="dlg" aria-labelledby="dlg-titre">
+  <form id="form-projet" class="form" novalidate>
+    <div class="dlg-tete">
+      <h2 id="dlg-titre">Nouveau client</h2>
+      <button id="dlg-fermer" class="fermer" type="button" aria-label="Fermer">×</button>
+    </div>
+
+    <fieldset>
+      <legend class="sur">Le client</legend>
+      <div class="deux">
+        <label>Prénom <input id="f-prenom" type="text" maxlength="80" autocomplete="off" required></label>
+        <label>Nom <input id="f-nom" type="text" maxlength="120" autocomplete="off"></label>
+      </div>
+      <label>Entreprise ou activité <input id="f-entreprise" type="text" maxlength="160" autocomplete="off"></label>
+      <div class="deux">
+        <label>E-mail <input id="f-email" type="email" maxlength="200" autocomplete="off"></label>
+        <label>Téléphone <input id="f-telephone" type="tel" maxlength="40" autocomplete="off"></label>
+      </div>
+      <label>Comment il vous a connu <input id="f-source" type="text" maxlength="120" list="sources" autocomplete="off"></label>
+      <datalist id="sources">
+        <option value="Bouche-à-oreille"></option>
+        <option value="Réseau"></option>
+        <option value="LinkedIn"></option>
+        <option value="Audit"></option>
+        <option value="Site fredkopp.com"></option>
+        <option value="Prospection"></option>
+        <option value="Malt"></option>
+      </datalist>
+    </fieldset>
+
+    <fieldset>
+      <legend class="sur">Le projet</legend>
+      <label>Intitulé <input id="f-titre" type="text" maxlength="160" autocomplete="off" required></label>
+      <div class="deux">
+        <label>Montant du devis, en euros <input id="f-montant" type="number" min="0" step="0.01" inputmode="decimal"></label>
+        <label>Dont acompte, en euros <input id="f-acompte" type="number" min="0" step="0.01" inputmode="decimal"></label>
+      </div>
+      <p class="nv">L’acompte se cale sur 30 % du devis. Vous pouvez le changer.</p>
+      <label>Étape en cours
+        <select id="f-etape"></select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend class="sur">Les dates</legend>
+      <div class="deux">
+        <label>Devis envoyé le <input id="f-envoye" type="date"></label>
+        <label>Devis signé le <input id="f-signe" type="date"></label>
+      </div>
+      <div class="deux">
+        <label>Acompte versé le <input id="f-acompte-verse" type="date"></label>
+        <label>Solde facturé le <input id="f-solde-facture" type="date"></label>
+      </div>
+      <div class="deux">
+        <label>Solde versé le <input id="f-solde-verse" type="date"></label>
+        <span></span>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend class="sur">Après la livraison</legend>
+      <label class="coche"><input id="f-maintenance" type="checkbox"> Maintenance en cours</label>
+      <div class="deux">
+        <label>Nom de domaine <input id="f-domaine" type="text" maxlength="200" autocomplete="off"></label>
+        <label>Renouvellement le <input id="f-renouvellement" type="date"></label>
+      </div>
+    </fieldset>
+
+    <p id="f-erreur" class="erreur" role="alert" hidden></p>
+    <div class="dlg-pied">
+      <button id="dlg-annuler" class="btn btn--clair" type="button">Annuler</button>
+      <button id="dlg-valider" class="btn" type="submit">Enregistrer</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="dlg-confirme" class="dlg dlg--petit" aria-labelledby="cf-titre">
+  <div class="form">
+    <div class="dlg-tete"><h2 id="cf-titre"></h2></div>
+    <p id="cf-texte"></p>
+    <div class="dlg-pied">
+      <button id="cf-non" class="btn btn--clair" type="button">Annuler</button>
+      <button id="cf-oui" class="btn" type="button"></button>
+    </div>
+  </div>
+</dialog>
+
+<p id="toast" class="toast" role="status" aria-live="polite" hidden></p>
+
+<noscript><p class="plein">Cet espace a besoin de JavaScript.</p></noscript>
+
+<script src="lib/supabase.js?v=2.119.0"></script>
+<script src="/suivi/commun.js?v=1"></script>
+<script src="crm.js?v=1"></script>
+</body>
+</html>
