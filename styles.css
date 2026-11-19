@@ -177,10 +177,11 @@ p { margin: 0; }
 
 /* Quotes */
 .quotes { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 56px; }
-.quote { flex: 1 1 400px; margin: 0; background: var(--bg-soft); border-radius: var(--r-l); padding: clamp(32px, 5vw, 52px); }
-.quote blockquote { margin: 0; font-weight: 500; letter-spacing: -.02em; font-size: clamp(26px, 2.8vw, 32px); line-height: 1.25; letter-spacing: -.01em; }
-.quote figcaption { margin-top: 28px; display: flex; align-items: center; gap: 14px; font-size: 15px; color: var(--muted); }
-.quote figcaption img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.quote { flex: 1 1 400px; margin: 0; background: var(--bg-soft); border-radius: var(--r-l); padding: clamp(28px, 3.5vw, 40px); display: flex; flex-direction: column; }
+.quote blockquote { flex: 1; margin: 0; font-weight: 450; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.5; letter-spacing: -.005em; }
+.quote figcaption { margin-top: 28px; display: flex; align-items: center; gap: 14px; font-size: 14px; color: var(--muted); }
+.quote figcaption img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.quote figcaption strong { color: var(--ink); font-weight: 600; }
 .quote figcaption i { width: 44px; height: 44px; border-radius: 50%; display: block; flex-shrink: 0; }
 
 /* Offers */
@@ -464,9 +465,9 @@ img.portrait { width: 100%; height: auto; object-fit: cover; display: block; }
 @media (max-width: 860px) { .presse-grid { grid-template-columns: minmax(0, 1fr); } .presse-list a, .presse-list span.row { grid-template-columns: minmax(0, 1fr) auto; } .presse-list .t { grid-column: 1 / -1; } }
 @media (max-width: 600px) {
   .quote { padding: 26px 22px; }
-  .quote blockquote { font-size: 19px; line-height: 1.45; font-weight: 450; }
-  .quote figcaption { gap: 14px; margin-top: 22px; font-size: 14px; }
-  .quote figcaption img { width: 72px; height: 72px; }
+  .quote blockquote { font-size: 16px; line-height: 1.5; }
+  .quote figcaption { gap: 12px; margin-top: 22px; font-size: 13px; }
+  .quote figcaption img { width: 56px; height: 56px; }
 }
 
 /* Méthode : étapes en quinconce reliées par un chemin pointillé (tracé par main.js) */
