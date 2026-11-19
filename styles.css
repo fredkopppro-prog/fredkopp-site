@@ -178,7 +178,7 @@ p { margin: 0; }
 /* Quotes */
 .quotes { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 56px; }
 .quote { flex: 1 1 400px; margin: 0; background: var(--bg-soft); border-radius: var(--r-l); padding: clamp(28px, 3.5vw, 40px); display: flex; flex-direction: column; }
-.quote blockquote { flex: 1; margin: 0; font-weight: 450; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.5; letter-spacing: -.005em; }
+.quote blockquote { flex: 1; margin: 0; font-style: italic; font-weight: 450; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.5; letter-spacing: -.005em; }
 .quote figcaption { margin-top: 28px; display: flex; align-items: center; gap: 14px; font-size: 14px; color: var(--muted); }
 .quote figcaption img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
 .quote figcaption strong { color: var(--ink); font-weight: 600; }
